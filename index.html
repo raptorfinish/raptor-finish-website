@@ -6,10 +6,8 @@
 <title>Raptor Finish — Premium Mobile Auto Detailing | Metro Vancouver</title>
 <meta name="description" content="Premium mobile auto detailing in Surrey, White Rock & Metro Vancouver. Interior detail, ceramic coating, paint correction and more. We come to you.">
 <meta name="keywords" content="mobile auto detailing, car detailing Surrey, car detailing White Rock, ceramic coating Vancouver, paint correction, auto detailing Metro Vancouver">
-<meta property="og:title" content="Raptor Finish — Premium Mobile Auto Detailing">
-<meta property="og:description" content="Precision detailing delivered to your door. We restore, protect, and elevate every vehicle to a showroom-quality finish.">
-<meta property="og:type" content="website">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- SVG icons inline — no library needed -->
 <style>
 /* =============================================
    RESET & BASE
@@ -17,10 +15,6 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:#0B0B0B;color:#fff;overflow-x:hidden}
-
-/* =============================================
-   CUSTOM SCROLLBAR
-============================================= */
 ::-webkit-scrollbar{width:4px}
 ::-webkit-scrollbar-track{background:#0B0B0B}
 ::-webkit-scrollbar-thumb{background:#D71920;border-radius:2px}
@@ -32,27 +26,21 @@ nav{
   position:fixed;top:0;left:0;right:0;z-index:1000;
   padding:0 5%;height:72px;
   display:flex;align-items:center;justify-content:space-between;
-  transition:all .4s ease;
-  background:transparent;
+  transition:all .4s ease;background:transparent;
 }
 nav.scrolled{
-  background:rgba(11,11,11,0.95);
+  background:rgba(11,11,11,0.96);
   backdrop-filter:blur(20px);
   border-bottom:1px solid rgba(255,255,255,0.06);
-  box-shadow:0 4px 40px rgba(0,0,0,0.4);
+  box-shadow:0 4px 40px rgba(0,0,0,0.5);
 }
-.nav-logo{
-  font-family:'Montserrat',sans-serif;font-weight:900;font-size:22px;
-  letter-spacing:.06em;color:#fff;text-decoration:none;cursor:pointer;
-  background:none;border:none;
-  text-shadow:0 0 30px rgba(215,25,32,0.3);
-}
-.nav-logo span{color:#D71920}
+.nav-logo-img{height:38px;width:auto;cursor:pointer;display:block;transition:opacity .2s}
+.nav-logo-img:hover{opacity:.85}
 .nav-links{display:flex;gap:32px;list-style:none}
 .nav-links a{
   font-family:'Inter',sans-serif;font-size:13px;font-weight:500;
-  color:rgba(255,255,255,0.7);text-decoration:none;cursor:pointer;
-  letter-spacing:.04em;transition:color .2s;text-transform:uppercase;
+  color:rgba(255,255,255,0.65);text-decoration:none;cursor:pointer;
+  letter-spacing:.05em;transition:color .2s;text-transform:uppercase;
 }
 .nav-links a:hover,.nav-links a.active{color:#fff}
 .nav-cta{
@@ -67,12 +55,6 @@ nav.scrolled{
 .nav-mobile-btn span{display:block;width:24px;height:2px;background:#fff;transition:all .3s}
 
 /* =============================================
-   PAGES
-============================================= */
-.page{display:none;min-height:100vh}
-.page.active{display:block}
-
-/* =============================================
    MOBILE MENU
 ============================================= */
 .mobile-menu{
@@ -82,428 +64,300 @@ nav.scrolled{
   z-index:999;flex-direction:column;padding:20px 5%;
 }
 .mobile-menu.open{display:flex}
-.mobile-menu span,.mobile-menu a{
+.mobile-menu span{
   font-family:'Inter',sans-serif;font-size:16px;font-weight:500;
-  color:rgba(255,255,255,0.8);padding:14px 0;
+  color:rgba(255,255,255,0.75);padding:14px 0;
   border-bottom:1px solid rgba(255,255,255,0.06);
-  cursor:pointer;text-decoration:none;letter-spacing:.04em;
-  text-transform:uppercase;transition:color .2s;
+  cursor:pointer;letter-spacing:.05em;text-transform:uppercase;transition:color .2s;
 }
-.mobile-menu span:hover,.mobile-menu a:hover{color:#D71920}
-.mobile-menu .mob-cta{
-  background:#D71920;color:#fff!important;
-  text-align:center;padding:14px;margin-top:12px;
+.mobile-menu span:hover{color:#D71920}
+.mob-cta{
+  background:#D71920!important;color:#fff!important;
+  text-align:center;padding:14px!important;margin-top:12px;
   font-family:'Montserrat',sans-serif;font-weight:700;
   letter-spacing:.1em;font-size:13px;border:none;border-bottom:none!important;
+  clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));
 }
 
 /* =============================================
-   HOME — HERO
+   PAGES
 ============================================= */
-.hero{
-  position:relative;height:100vh;min-height:600px;
-  display:flex;align-items:center;justify-content:center;
-  text-align:center;overflow:hidden;
-}
+.page{display:none;min-height:100vh}
+.page.active{display:block}
+
+/* =============================================
+   ANIMATIONS
+============================================= */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes heroZoom{0%{transform:scale(1.05)}100%{transform:scale(1.13)}}
+@keyframes scrollPulse{0%,100%{opacity:.4}50%{opacity:1}}
+@keyframes galleryScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* =============================================
+   HERO
+============================================= */
+.hero{position:relative;height:100vh;min-height:620px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
 .hero-bg{
   position:absolute;inset:0;
-  background:url('https://images.unsplash.com/photo-1619405399517-d7fce0f13302?w=1920&q=80') center/cover no-repeat;
-  transform:scale(1.05);
-  animation:heroZoom 12s ease-in-out infinite alternate;
+  background:url('https://images.unsplash.com/photo-1619405399517-d7fce0f13302?w=1920&q=85') center/cover no-repeat;
+  animation:heroZoom 14s ease-in-out infinite alternate;
 }
-@keyframes heroZoom{0%{transform:scale(1.05)}100%{transform:scale(1.12)}}
-.hero-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(11,11,11,0.85) 0%,rgba(11,11,11,0.6) 50%,rgba(11,11,11,0.8) 100%);
-}
-.hero-overlay-bottom{
-  position:absolute;bottom:0;left:0;right:0;height:200px;
-  background:linear-gradient(to top,#0B0B0B,transparent);
-}
-.hero-content{position:relative;z-index:2;max-width:900px;padding:0 24px}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(11,11,11,.88) 0%,rgba(11,11,11,.55) 55%,rgba(11,11,11,.82) 100%)}
+.hero-bottom-fade{position:absolute;bottom:0;left:0;right:0;height:220px;background:linear-gradient(to top,#0B0B0B,transparent)}
+.hero-content{position:relative;z-index:2;max-width:920px;padding:0 24px}
 .hero-eyebrow{
-  display:inline-flex;align-items:center;gap:10px;
+  display:inline-flex;align-items:center;gap:12px;
   font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;
-  letter-spacing:.2em;color:#D71920;text-transform:uppercase;
-  margin-bottom:24px;
+  letter-spacing:.2em;color:#D71920;text-transform:uppercase;margin-bottom:28px;
   animation:fadeUp .8s ease .2s both;
 }
-.hero-eyebrow::before,.hero-eyebrow::after{content:'';width:32px;height:1px;background:#D71920}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';width:36px;height:1px;background:#D71920;opacity:.7}
 .hero h1{
   font-family:'Montserrat',sans-serif;font-weight:900;
-  font-size:clamp(48px,8vw,90px);
-  line-height:.95;letter-spacing:-.02em;text-transform:uppercase;
-  margin-bottom:28px;
+  font-size:clamp(50px,9vw,96px);
+  line-height:.92;letter-spacing:-.03em;text-transform:uppercase;margin-bottom:28px;
   animation:fadeUp .8s ease .4s both;
 }
-.hero h1 em{
-  display:block;color:#D71920;font-style:normal;
-  text-shadow:0 0 60px rgba(215,25,32,0.4);
-}
+.hero h1 em{display:block;color:#D71920;font-style:normal;text-shadow:0 0 80px rgba(215,25,32,0.35)}
 .hero-sub{
   font-family:'Inter',sans-serif;font-size:18px;font-weight:300;
-  color:rgba(255,255,255,0.7);max-width:520px;margin:0 auto 40px;
-  line-height:1.75;letter-spacing:.01em;
+  color:rgba(255,255,255,.65);max-width:520px;margin:0 auto 44px;line-height:1.78;
   animation:fadeUp .8s ease .6s both;
 }
-.hero-btns{
-  display:flex;gap:16px;justify-content:center;flex-wrap:wrap;
-  animation:fadeUp .8s ease .8s both;
-}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;animation:fadeUp .8s ease .8s both}
 .btn-red{
-  background:#D71920;color:#fff;
-  font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;
-  letter-spacing:.1em;padding:16px 40px;cursor:pointer;border:none;
-  text-transform:uppercase;transition:all .3s;
+  background:#D71920;color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;
+  letter-spacing:.1em;padding:16px 42px;cursor:pointer;border:none;text-transform:uppercase;
+  transition:all .3s;
   clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));
 }
-.btn-red:hover{background:#ff1e26;transform:translateY(-2px);box-shadow:0 12px 35px rgba(215,25,32,0.5)}
+.btn-red:hover{background:#ff1e26;transform:translateY(-2px);box-shadow:0 14px 36px rgba(215,25,32,.45)}
 .btn-ghost{
-  background:transparent;color:#fff;
-  font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;
-  letter-spacing:.1em;padding:15px 40px;cursor:pointer;
-  border:1px solid rgba(255,255,255,0.3);
+  background:transparent;color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;
+  letter-spacing:.1em;padding:15px 42px;cursor:pointer;border:1px solid rgba(255,255,255,.3);
   text-transform:uppercase;transition:all .3s;
 }
-.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,0.05);transform:translateY(-2px)}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.05);transform:translateY(-2px)}
 .hero-scroll{
-  position:absolute;bottom:40px;left:50%;transform:translateX(-50%);
-  display:flex;flex-direction:column;align-items:center;gap:8px;
-  animation:fadeUp .8s ease 1.2s both;cursor:pointer;
+  position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;
+  animation:fadeUp .8s ease 1.2s both;
 }
-.hero-scroll span{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.15em;color:rgba(255,255,255,0.4);text-transform:uppercase}
-.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,rgba(255,255,255,0.4),transparent);animation:scrollPulse 2s ease infinite}
-@keyframes scrollPulse{0%,100%{opacity:.4;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.2)}}
+.hero-scroll span{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.18em;color:rgba(255,255,255,.35);text-transform:uppercase}
+.scroll-line{width:1px;height:44px;background:linear-gradient(to bottom,rgba(255,255,255,.4),transparent);animation:scrollPulse 2s ease infinite}
 
 /* =============================================
    TRUST STRIP
 ============================================= */
 .trust-strip{
-  background:#111;border-top:1px solid rgba(255,255,255,0.06);
-  border-bottom:1px solid rgba(255,255,255,0.06);
-  padding:20px 5%;
-  display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap;
+  background:#111;border-top:1px solid rgba(255,255,255,.05);
+  border-bottom:1px solid rgba(255,255,255,.05);
+  padding:18px 5%;display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap;
 }
-.trust-item{
-  display:flex;align-items:center;gap:10px;
-  font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;
-  letter-spacing:.12em;color:rgba(255,255,255,0.4);text-transform:uppercase;
-}
+.trust-item{display:flex;align-items:center;gap:10px;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.13em;color:rgba(255,255,255,.35);text-transform:uppercase}
 .trust-dot{width:5px;height:5px;background:#D71920;border-radius:50%;flex-shrink:0}
 
 /* =============================================
-   SECTION SHARED
+   SHARED SECTION ELEMENTS
 ============================================= */
-.section-eyebrow{
-  font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;
-  letter-spacing:.18em;color:#D71920;text-transform:uppercase;margin-bottom:14px;
-}
-.section-h2{
-  font-family:'Montserrat',sans-serif;font-weight:900;
-  font-size:clamp(32px,4vw,52px);
-  line-height:1.05;letter-spacing:-.02em;text-transform:uppercase;
-  margin-bottom:20px;
-}
-.section-p{font-family:'Inter',sans-serif;font-size:16px;color:rgba(255,255,255,0.55);line-height:1.8}
+.section-eyebrow{font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:.18em;color:#D71920;text-transform:uppercase;margin-bottom:14px}
+.section-h2{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(30px,4.5vw,54px);line-height:1.02;letter-spacing:-.02em;text-transform:uppercase;margin-bottom:20px}
+.section-p{font-family:'Inter',sans-serif;font-size:16px;color:rgba(255,255,255,.5);line-height:1.82}
 
 /* =============================================
-   HOME — ABOUT SPLIT
+   ABOUT SPLIT
 ============================================= */
-.about-split{
-  display:grid;grid-template-columns:1fr 1fr;
-  max-width:1200px;margin:0 auto;padding:100px 5%;gap:80px;align-items:center;
-}
+.about-split{display:grid;grid-template-columns:1fr 1fr;max-width:1200px;margin:0 auto;padding:100px 5%;gap:80px;align-items:center}
 @media(max-width:768px){.about-split{grid-template-columns:1fr;gap:48px}}
 .about-img-wrap{position:relative}
-.about-img{
+.about-red-bar{position:absolute;top:40px;left:-12px;width:4px;height:80px;background:#D71920}
+.about-main-img{
   width:100%;aspect-ratio:4/5;
-  background:url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80') center/cover;
+  background:url('https://images.unsplash.com/photo-1619405399517-d7fce0f13302?w=800&q=80') center/cover;
   clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,20px 100%,0 calc(100% - 20px));
 }
-.about-img-accent{
-  position:absolute;bottom:-20px;right:-20px;
-  width:60%;aspect-ratio:1;
-  background:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80') center/cover;
-  border:3px solid #D71920;
+.about-accent-img{
+  position:absolute;bottom:-20px;right:-20px;width:58%;aspect-ratio:1;
+  background:url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&q=80') center/cover;
+  border:3px solid #D71920;z-index:2;
   clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));
-  z-index:2;
 }
-.about-red-bar{
-  position:absolute;top:40px;left:-12px;
-  width:4px;height:80px;background:#D71920;
-}
-.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.06);margin-top:40px}
-.stat-box{
-  background:#111;padding:24px 20px;text-align:center;
-  transition:background .3s;
-}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.07);margin-top:40px}
+.stat-box{background:#111;padding:24px 20px;text-align:center;transition:background .3s}
 .stat-box:hover{background:#161616}
 .stat-num{font-family:'Montserrat',sans-serif;font-weight:900;font-size:36px;color:#D71920;line-height:1}
-.stat-label{font-family:'Inter',sans-serif;font-size:11px;color:rgba(255,255,255,0.4);margin-top:5px;letter-spacing:.06em;text-transform:uppercase}
+.stat-label{font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.35);margin-top:5px;letter-spacing:.07em;text-transform:uppercase}
 
 /* =============================================
-   HOME — SERVICES DARK SECTION
+   SERVICES DARK GRID
 ============================================= */
 .services-dark{background:#0B0B0B;padding:100px 5%}
 .services-dark-inner{max-width:1200px;margin:0 auto}
 .section-header-row{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:56px;flex-wrap:wrap;gap:20px}
-.link-arrow{
-  font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;
-  letter-spacing:.1em;color:#D71920;text-transform:uppercase;
-  cursor:pointer;background:none;border:none;display:flex;align-items:center;gap:8px;
-  transition:gap .2s;
-}
+.link-arrow{font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:.1em;color:#D71920;text-transform:uppercase;cursor:pointer;background:none;border:none;display:flex;align-items:center;gap:8px;transition:gap .2s}
 .link-arrow:hover{gap:14px}
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.06)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.06)}
 @media(max-width:900px){.svc-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.svc-grid{grid-template-columns:1fr}}
-.svc-item{
-  background:#0f0f0f;padding:40px 32px;position:relative;overflow:hidden;
-  transition:background .3s;cursor:default;
-}
-.svc-item::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,#D71920,transparent);
-  transform:scaleX(0);transform-origin:left;transition:transform .4s;
-}
+.svc-item{background:#0f0f0f;padding:0;position:relative;overflow:hidden;transition:background .3s}
+.svc-item::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#D71920,transparent);transform:scaleX(0);transform-origin:left;transition:transform .4s;z-index:2}
 .svc-item:hover{background:#131313}
 .svc-item:hover::before{transform:scaleX(1)}
-.svc-num{font-family:'Montserrat',sans-serif;font-weight:900;font-size:48px;color:rgba(255,255,255,0.04);line-height:1;margin-bottom:16px}
-.svc-img{
-  width:100%;height:160px;margin-bottom:20px;overflow:hidden;
-  clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));
-}
-.svc-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s;filter:brightness(.7)}
-.svc-item:hover .svc-img img{transform:scale(1.08);filter:brightness(.85)}
-.svc-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:17px;color:#fff;margin-bottom:10px}
-.svc-desc{font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,0.45);line-height:1.7}
-.svc-badge{
-  position:absolute;top:20px;right:20px;
-  background:#D71920;color:#fff;
-  font-family:'Montserrat',sans-serif;font-weight:700;font-size:9px;
-  letter-spacing:.1em;padding:4px 10px;text-transform:uppercase;
-}
+.svc-item-img{width:100%;height:180px;overflow:hidden}
+.svc-item-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s;filter:brightness(.65)}
+.svc-item:hover .svc-item-img img{transform:scale(1.08);filter:brightness(.85)}
+.svc-item-body{padding:28px 28px 32px}
+.svc-num{font-family:'Montserrat',sans-serif;font-weight:900;font-size:11px;letter-spacing:.14em;color:#D71920;margin-bottom:10px}
+.svc-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:17px;color:#fff;margin-bottom:8px}
+.svc-desc{font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.4);line-height:1.72}
+.svc-badge{position:absolute;top:14px;right:14px;background:#D71920;color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:9px;letter-spacing:.1em;padding:4px 10px;text-transform:uppercase;z-index:3}
 
 /* =============================================
-   HOME — GALLERY / PHOTO STRIP
+   GALLERY STRIP
 ============================================= */
-.gallery-strip{padding:80px 0;overflow:hidden;background:#0B0B0B}
-.gallery-strip-inner{max-width:1200px;margin:0 auto;padding:0 5%;margin-bottom:40px;text-align:center}
-.gallery-track{display:flex;gap:12px;width:max-content;animation:galleryScroll 40s linear infinite}
+.gallery-strip{padding:80px 0;background:#0B0B0B;overflow:hidden}
+.gallery-strip-header{max-width:1200px;margin:0 auto 44px;padding:0 5%;text-align:center}
+.gallery-overflow{position:relative}
+.gallery-fade-l{position:absolute;top:0;left:0;width:140px;height:100%;background:linear-gradient(to right,#0B0B0B,transparent);pointer-events:none;z-index:2}
+.gallery-fade-r{position:absolute;top:0;right:0;width:140px;height:100%;background:linear-gradient(to left,#0B0B0B,transparent);pointer-events:none;z-index:2}
+.gallery-track{display:flex;gap:12px;width:max-content;animation:galleryScroll 45s linear infinite}
 .gallery-track:hover{animation-play-state:paused}
-@keyframes galleryScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.gallery-img{
-  width:320px;height:220px;flex-shrink:0;overflow:hidden;
-  clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));
-  transition:transform .3s;
-}
-.gallery-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s;filter:brightness(.75)}
-.gallery-img:hover{transform:scale(1.02)}
-.gallery-img:hover img{filter:brightness(1)}
-.gallery-fade-l{position:absolute;top:0;left:0;width:120px;height:100%;background:linear-gradient(to right,#0B0B0B,transparent);pointer-events:none;z-index:2}
-.gallery-fade-r{position:absolute;top:0;right:0;width:120px;height:100%;background:linear-gradient(to left,#0B0B0B,transparent);pointer-events:none;z-index:2}
-.gallery-overflow{position:relative;overflow:hidden}
+.gallery-img{width:320px;height:220px;flex-shrink:0;overflow:hidden;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px))}
+.gallery-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s;filter:brightness(.7)}
+.gallery-img:hover img{transform:scale(1.06);filter:brightness(.95)}
 
 /* =============================================
-   HOME — WHY SECTION
+   WHY SECTION
 ============================================= */
 .why-section{background:#111;padding:100px 5%}
 .why-inner{max-width:1200px;margin:0 auto}
-.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.06);margin-top:56px}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.06);margin-top:56px}
 @media(max-width:900px){.why-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:500px){.why-grid{grid-template-columns:1fr}}
-.why-item{
-  background:#111;padding:40px 28px;
-  transition:background .3s;
-}
-.why-item:hover{background:#141414}
-.why-icon{
-  width:48px;height:48px;background:#D71920;
-  display:flex;align-items:center;justify-content:center;
-  margin-bottom:22px;
-  clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));
-}
+.why-item{background:#111;padding:40px 28px;transition:background .3s;border-top:2px solid transparent;transition:all .3s}
+.why-item:hover{background:#141414;border-top-color:#D71920}
+.why-icon{width:48px;height:48px;background:#D71920;display:flex;align-items:center;justify-content:center;margin-bottom:22px;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px))}
 .why-icon svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .why-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;color:#fff;margin-bottom:10px}
-.why-desc{font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.45);line-height:1.75}
+.why-desc{font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.42);line-height:1.78}
 
 /* =============================================
-   HOME — VIDEO/FEATURE BAND
+   FEATURE BAND (parallax quote)
 ============================================= */
-.feature-band{
-  position:relative;height:500px;overflow:hidden;
-  display:flex;align-items:center;justify-content:center;
-}
-.feature-band-bg{
-  position:absolute;inset:0;
-  background:url('https://images.unsplash.com/photo-1600706432502-77a0e2e32790?w=1920&q=80') center/cover fixed;
-}
-.feature-band-overlay{position:absolute;inset:0;background:rgba(11,11,11,0.75)}
-.feature-band-content{position:relative;z-index:2;text-align:center;max-width:700px;padding:0 24px}
-.feature-band-content blockquote{
-  font-family:'Inter',sans-serif;font-style:italic;font-weight:300;
-  font-size:clamp(22px,3vw,34px);color:#fff;line-height:1.5;margin-bottom:20px;
-}
-.feature-band-content cite{
-  font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;
-  letter-spacing:.16em;color:#D71920;text-transform:uppercase;font-style:normal;
-}
+.feature-band{position:relative;height:480px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.feature-band-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=1920&q=80') center/cover fixed}
+.feature-band-overlay{position:absolute;inset:0;background:rgba(11,11,11,.78)}
+.feature-band-content{position:relative;z-index:2;text-align:center;max-width:720px;padding:0 24px}
+.feature-band-content blockquote{font-family:'Inter',sans-serif;font-style:italic;font-weight:300;font-size:clamp(22px,3.2vw,36px);color:#fff;line-height:1.52;margin-bottom:20px}
+.feature-band-content cite{font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:.18em;color:#D71920;text-transform:uppercase;font-style:normal}
 
 /* =============================================
-   HOME — CTA STRIP
+   CTA STRIP
 ============================================= */
-.cta-strip{
-  background:#D71920;padding:80px 5%;text-align:center;
-  position:relative;overflow:hidden;
-}
-.cta-strip::before{
-  content:'RAPTOR FINISH';
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  font-family:'Montserrat',sans-serif;font-weight:900;font-size:120px;
-  color:rgba(0,0,0,0.08);white-space:nowrap;letter-spacing:-.02em;
-  pointer-events:none;
-}
-.cta-strip h2{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(30px,5vw,54px);color:#fff;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:16px;position:relative}
-.cta-strip p{font-family:'Inter',sans-serif;font-size:17px;color:rgba(255,255,255,0.85);margin-bottom:36px;max-width:500px;margin-left:auto;margin-right:auto;position:relative}
-.btn-white{
-  background:#fff;color:#D71920;
-  font-family:'Montserrat',sans-serif;font-weight:800;font-size:13px;
-  letter-spacing:.1em;padding:16px 44px;cursor:pointer;border:none;
-  text-transform:uppercase;transition:all .3s;position:relative;
-  clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));
-}
-.btn-white:hover{background:#0B0B0B;color:#fff;transform:translateY(-2px);box-shadow:0 12px 35px rgba(0,0,0,0.3)}
+.cta-strip{background:#D71920;padding:80px 5%;text-align:center;position:relative;overflow:hidden}
+.cta-strip::before{content:'RAPTOR FINISH';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Montserrat',sans-serif;font-weight:900;font-size:110px;color:rgba(0,0,0,.09);white-space:nowrap;letter-spacing:-.02em;pointer-events:none}
+.cta-strip h2{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(30px,5vw,56px);color:#fff;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:16px;position:relative}
+.cta-strip p{font-family:'Inter',sans-serif;font-size:17px;color:rgba(255,255,255,.85);margin-bottom:36px;max-width:500px;margin-left:auto;margin-right:auto;position:relative}
+.btn-white{background:#fff;color:#D71920;font-family:'Montserrat',sans-serif;font-weight:800;font-size:13px;letter-spacing:.1em;padding:16px 44px;cursor:pointer;border:none;text-transform:uppercase;transition:all .3s;position:relative;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px))}
+.btn-white:hover{background:#0B0B0B;color:#fff;transform:translateY(-2px);box-shadow:0 14px 36px rgba(0,0,0,.35)}
 
 /* =============================================
    FOOTER
 ============================================= */
-footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255,255,0.06)}
+footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255,255,.06)}
 .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px;margin-bottom:64px}
 @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.footer-grid{grid-template-columns:1fr}}
-.footer-logo-btn{
-  font-family:'Montserrat',sans-serif;font-weight:900;font-size:22px;
-  letter-spacing:.06em;color:#fff;cursor:pointer;background:none;border:none;
-  display:block;margin-bottom:14px;text-align:left;
-}
-.footer-logo-btn span{color:#D71920}
-.footer-tag{font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,0.35);line-height:1.75;margin-bottom:22px;max-width:280px}
-.footer-badge{
-  display:inline-block;background:#1C1C1C;
-  font-family:'Montserrat',sans-serif;font-weight:700;font-size:9px;
-  letter-spacing:.14em;color:#D71920;text-transform:uppercase;padding:5px 12px;margin-bottom:18px;
-  clip-path:polygon(0 0,calc(100% - 6px) 0,100% 6px,100% 100%,6px 100%,0 calc(100% - 6px));
-}
-.footer-area{font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.25);line-height:1.8}
-.footer-col h4{font-family:'Montserrat',sans-serif;font-weight:700;font-size:10px;letter-spacing:.16em;color:rgba(255,255,255,0.5);text-transform:uppercase;margin-bottom:18px}
+.footer-logo-img{height:40px;width:auto;cursor:pointer;display:block;margin-bottom:16px;transition:opacity .2s}
+.footer-logo-img:hover{opacity:.8}
+.footer-tag{font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,.32);line-height:1.78;margin-bottom:20px;max-width:280px}
+.footer-badge{display:inline-block;background:#1C1C1C;font-family:'Montserrat',sans-serif;font-weight:700;font-size:9px;letter-spacing:.14em;color:#D71920;text-transform:uppercase;padding:5px 12px;margin-bottom:18px;clip-path:polygon(0 0,calc(100% - 6px) 0,100% 6px,100% 100%,6px 100%,0 calc(100% - 6px))}
+.footer-area{font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.22);line-height:1.85}
+.footer-col h4{font-family:'Montserrat',sans-serif;font-weight:700;font-size:10px;letter-spacing:.16em;color:rgba(255,255,255,.45);text-transform:uppercase;margin-bottom:18px}
 .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:12px}
-.footer-col ul li span,.footer-col ul li a{
-  font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,0.35);
-  cursor:pointer;text-decoration:none;transition:color .2s;
-}
+.footer-col ul li span,.footer-col ul li a{font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,.32);cursor:pointer;text-decoration:none;transition:color .2s}
 .footer-col ul li span:hover,.footer-col ul li a:hover{color:#D71920}
-.footer-contact-block{font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,0.35);line-height:2}
-.footer-contact-block a{color:rgba(255,255,255,0.35);text-decoration:none;transition:color .2s}
-.footer-contact-block a:hover{color:#D71920}
-.social-row{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:16px}
-.social-link{
-  font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,0.3);
-  text-decoration:none;padding:7px 8px;border:1px solid rgba(255,255,255,0.08);
-  text-align:center;transition:all .2s;
+.footer-contact{font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,.32);line-height:2.1}
+.footer-contact a{color:rgba(255,255,255,.32);text-decoration:none;transition:color .2s}
+.footer-contact a:hover{color:#D71920}
+
+/* SOCIAL ICONS */
+.social-icons-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.soc-icon{
+  width:36px;height:36px;border:1px solid rgba(255,255,255,.1);
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;transition:all .25s;flex-shrink:0;
 }
-.social-link:hover{border-color:#D71920;color:#D71920}
-.footer-bottom{
-  max-width:1200px;margin:0 auto;border-top:1px solid rgba(255,255,255,0.06);
-  padding-top:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
-}
-.footer-bottom p{font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,0.2)}
+.soc-icon svg{width:16px;height:16px;fill:rgba(255,255,255,.35);transition:fill .25s}
+.soc-icon:hover{border-color:#D71920;background:rgba(215,25,32,.1)}
+.soc-icon:hover svg{fill:#D71920}
+
+.footer-bottom{max-width:1200px;margin:0 auto;border-top:1px solid rgba(255,255,255,.06);padding-top:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-bottom p{font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,.2)}
 .footer-legal{display:flex;gap:20px}
-.footer-legal span,.footer-legal a{font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,0.2);cursor:pointer;text-decoration:none;transition:color .2s}
+.footer-legal span,.footer-legal a{font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,.2);cursor:pointer;text-decoration:none;transition:color .2s}
 .footer-legal span:hover,.footer-legal a:hover{color:#D71920}
 
 /* =============================================
    PAGE HERO (inner pages)
 ============================================= */
-.page-hero{
-  position:relative;padding:140px 5% 80px;text-align:center;overflow:hidden;
-}
-.page-hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#0B0B0B 0%,#1a0a0a 100%)}
-.page-hero-bg::after{
-  content:'';position:absolute;inset:0;
-  background:url('https://images.unsplash.com/photo-1619405399517-d7fce0f13302?w=1920&q=80') center/cover;
-  opacity:.12;
-}
+.page-hero{position:relative;padding:148px 5% 80px;text-align:center;overflow:hidden}
+.page-hero-bg{position:absolute;inset:0}
+.page-hero-bg::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,#0d0d0d 0%,#180808 100%)}
+.page-hero-bg::after{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1619405399517-d7fce0f13302?w=1920&q=80') center/cover;opacity:.1}
 .page-hero-content{position:relative;z-index:2}
 .page-hero-eyebrow{font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:.18em;color:#D71920;text-transform:uppercase;margin-bottom:16px}
-.page-hero h1{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(36px,6vw,64px);color:#fff;text-transform:uppercase;letter-spacing:-.02em;line-height:1.05;margin-bottom:20px}
-.page-hero p{font-family:'Inter',sans-serif;font-size:17px;color:rgba(255,255,255,0.55);max-width:560px;margin:0 auto;line-height:1.75}
-.page-hero-line{width:60px;height:3px;background:#D71920;margin:24px auto 0}
+.page-hero h1{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(34px,6vw,66px);color:#fff;text-transform:uppercase;letter-spacing:-.02em;line-height:1.03;margin-bottom:20px}
+.page-hero p{font-family:'Inter',sans-serif;font-size:17px;color:rgba(255,255,255,.5);max-width:560px;margin:0 auto;line-height:1.78}
+.page-hero-line{width:56px;height:3px;background:#D71920;margin:24px auto 0}
 
 /* =============================================
-   SERVICES PAGE
+   SERVICES FULL PAGE
 ============================================= */
 .services-full{padding:80px 5%;background:#0B0B0B}
 .services-full-inner{max-width:1200px;margin:0 auto}
-.svc-full-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1px;background:rgba(255,255,255,0.06)}
-.svc-full-card{
-  background:#0f0f0f;padding:0;overflow:hidden;
-  transition:transform .3s;position:relative;
-}
+.svc-full-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1px;background:rgba(255,255,255,.06)}
+.svc-full-card{background:#0f0f0f;overflow:hidden;position:relative;transition:transform .3s}
 .svc-full-card:hover{transform:translateY(-4px)}
 .svc-full-img{width:100%;height:200px;overflow:hidden}
-.svc-full-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s;filter:brightness(.65)}
-.svc-full-card:hover .svc-full-img img{transform:scale(1.06);filter:brightness(.8)}
+.svc-full-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s;filter:brightness(.6)}
+.svc-full-card:hover .svc-full-img img{transform:scale(1.07);filter:brightness(.8)}
 .svc-full-body{padding:32px}
-.svc-full-num{font-family:'Montserrat',sans-serif;font-weight:900;font-size:11px;letter-spacing:.14em;color:#D71920;text-transform:uppercase;margin-bottom:12px}
+.svc-full-num{font-family:'Montserrat',sans-serif;font-weight:900;font-size:11px;letter-spacing:.14em;color:#D71920;text-transform:uppercase;margin-bottom:10px}
 .svc-full-card h2{font-family:'Montserrat',sans-serif;font-weight:700;font-size:20px;color:#fff;margin-bottom:12px;line-height:1.2}
-.svc-full-card p{font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,0.45);line-height:1.75;margin-bottom:20px}
-.svc-includes{list-style:none;border-top:1px solid rgba(255,255,255,0.07);padding-top:20px;display:flex;flex-direction:column;gap:9px}
-.svc-includes li{font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.5);display:flex;align-items:center;gap:10px}
+.svc-full-card>div>p{font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,.42);line-height:1.75;margin-bottom:20px}
+.svc-includes{list-style:none;border-top:1px solid rgba(255,255,255,.07);padding-top:20px;display:flex;flex-direction:column;gap:9px}
+.svc-includes li{font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.48);display:flex;align-items:center;gap:10px}
 .svc-includes li::before{content:'';width:4px;height:4px;background:#D71920;border-radius:50%;flex-shrink:0}
-.svc-full-badge{
-  position:absolute;top:16px;right:16px;
-  background:#D71920;color:#fff;
-  font-family:'Montserrat',sans-serif;font-weight:700;font-size:9px;
-  letter-spacing:.1em;padding:4px 10px;text-transform:uppercase;z-index:2;
-}
+.svc-full-badge{position:absolute;top:16px;right:16px;background:#D71920;color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:9px;letter-spacing:.1em;padding:4px 10px;text-transform:uppercase;z-index:2}
 
 /* =============================================
    ABOUT PAGE
 ============================================= */
 .about-section{padding:100px 5%;background:#0B0B0B}
 .about-inner{max-width:1200px;margin:0 auto}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-bottom:80px}
-@media(max-width:768px){.about-grid{grid-template-columns:1fr;gap:40px}}
+.about-main-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-bottom:0}
+@media(max-width:768px){.about-main-grid{grid-template-columns:1fr;gap:40px}}
 .about-large-img{
   width:100%;aspect-ratio:3/4;
-  background:url('https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=800&q=80') center/cover;
+  background:url('https://images.unsplash.com/photo-1619405399517-d7fce0f13302?w=900&q=80') center/cover;
   clip-path:polygon(0 0,calc(100% - 24px) 0,100% 24px,100% 100%,24px 100%,0 calc(100% - 24px));
-  position:relative;
 }
-.about-large-img::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(to bottom,transparent 50%,rgba(11,11,11,0.6));
-}
-.about-text .section-eyebrow{margin-bottom:12px}
-.about-text .section-h2{margin-bottom:20px}
-.about-text p{font-family:'Inter',sans-serif;font-size:16px;color:rgba(255,255,255,0.55);line-height:1.85;margin-bottom:16px}
-.about-text p:last-child{margin-bottom:0}
+.about-text p{font-family:'Inter',sans-serif;font-size:16px;color:rgba(255,255,255,.52);line-height:1.88;margin-bottom:18px}
 .values-section{background:#111;padding:80px 5%}
 .values-inner{max-width:1200px;margin:0 auto}
-.values-inner .section-h2{text-align:center;margin-bottom:56px}
-.values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.06)}
+.values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.06);margin-top:56px}
 @media(max-width:900px){.values-grid{grid-template-columns:1fr 1fr}}
 .value-card{background:#111;padding:40px 28px;transition:background .3s}
 .value-card:hover{background:#141414}
-.value-big-num{font-family:'Montserrat',sans-serif;font-weight:900;font-size:56px;color:rgba(255,255,255,0.05);line-height:1;margin-bottom:8px}
-.value-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:#fff;margin-bottom:12px}
-.value-desc{font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.4);line-height:1.75}
-.quote-section{
-  position:relative;padding:100px 5%;text-align:center;overflow:hidden;
-  background:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80') center/cover fixed;
-}
-.quote-section::before{position:absolute;inset:0;content:'';background:rgba(11,11,11,0.88)}
-.quote-section blockquote{position:relative;font-family:'Inter',sans-serif;font-style:italic;font-weight:300;font-size:clamp(22px,3vw,36px);color:#fff;max-width:780px;margin:0 auto 20px;line-height:1.5}
+.value-big-num{font-family:'Montserrat',sans-serif;font-weight:900;font-size:54px;color:rgba(255,255,255,.05);line-height:1;margin-bottom:8px}
+.value-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:#fff;margin-bottom:10px}
+.value-desc{font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.38);line-height:1.78}
+.quote-section{position:relative;padding:100px 5%;text-align:center;overflow:hidden;background:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80') center/cover fixed}
+.quote-section::before{content:'';position:absolute;inset:0;background:rgba(11,11,11,.88)}
+.quote-section blockquote{position:relative;font-family:'Inter',sans-serif;font-style:italic;font-weight:300;font-size:clamp(22px,3.2vw,38px);color:#fff;max-width:780px;margin:0 auto 20px;line-height:1.5}
 .quote-section cite{position:relative;font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:.16em;color:#D71920;text-transform:uppercase;font-style:normal}
 
 /* =============================================
@@ -515,59 +369,40 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
 .contact-left h2{font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:#fff;margin-bottom:36px}
 .c-block{margin-bottom:28px}
 .c-label{font-family:'Montserrat',sans-serif;font-weight:700;font-size:10px;letter-spacing:.14em;color:#D71920;text-transform:uppercase;margin-bottom:8px}
-.c-block p,.c-block a{font-family:'Inter',sans-serif;font-size:15px;color:rgba(255,255,255,0.55);line-height:1.7;text-decoration:none;transition:color .2s}
+.c-block p,.c-block a{font-family:'Inter',sans-serif;font-size:15px;color:rgba(255,255,255,.5);line-height:1.75;text-decoration:none;transition:color .2s}
 .c-block a:hover{color:#D71920}
 .c-channels{display:flex;flex-direction:column;gap:8px;margin-top:10px}
-.c-channel{
-  display:flex;align-items:center;gap:14px;padding:14px 16px;
-  background:#111;border:1px solid rgba(255,255,255,0.07);text-decoration:none;
-  transition:border-color .2s;
-}
+.c-channel{display:flex;align-items:center;gap:14px;padding:14px 16px;background:#111;border:1px solid rgba(255,255,255,.07);text-decoration:none;transition:border-color .2s}
 .c-channel:hover{border-color:#D71920}
 .c-channel-label{font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#fff}
-.c-channel-sub{font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,0.35);margin-top:2px}
-.c-social{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
-.c-social-btn{
-  display:block;padding:10px;
-  background:#111;border:1px solid rgba(255,255,255,0.07);text-decoration:none;
-  text-align:center;transition:all .2s;
-}
-.c-social-btn:hover{border-color:#D71920}
-.c-social-label{font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#fff}
-.c-social-handle{font-family:'Inter',sans-serif;font-size:11px;color:rgba(255,255,255,0.3);margin-top:2px}
-.booking-form-card{
-  background:#111;padding:48px 44px;
-  border-top:3px solid #D71920;
-  clip-path:polygon(0 0,calc(100% - 16px) 0,100% 16px,100% 100%,0 100%);
-}
+.c-channel-sub{font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,.32);margin-top:2px}
+
+/* contact social icons */
+.contact-social-icons{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.csoc-icon{width:40px;height:40px;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all .25s;position:relative}
+.csoc-icon svg{width:18px;height:18px;fill:rgba(255,255,255,.4);transition:fill .25s}
+.csoc-icon:hover{border-color:#D71920;background:rgba(215,25,32,.12)}
+.csoc-icon:hover svg{fill:#D71920}
+.csoc-icon[title]:hover::after{content:attr(title);position:absolute;bottom:-28px;left:50%;transform:translateX(-50%);background:#D71920;color:#fff;font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.08em;padding:3px 8px;white-space:nowrap;pointer-events:none}
+
+.booking-form-card{background:#111;padding:48px 44px;border-top:3px solid #D71920;clip-path:polygon(0 0,calc(100% - 16px) 0,100% 16px,100% 100%,0 100%)}
 @media(max-width:500px){.booking-form-card{padding:28px 20px;clip-path:none}}
 .booking-form-card h2{font-family:'Montserrat',sans-serif;font-weight:900;font-size:22px;text-transform:uppercase;letter-spacing:.02em;color:#fff;margin-bottom:8px}
-.booking-form-card .form-sub{font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,0.35);margin-bottom:32px}
+.form-sub{font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,.32);margin-bottom:32px}
 .form-group{margin-bottom:18px}
-.form-group label{display:block;font-family:'Montserrat',sans-serif;font-weight:600;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:7px}
-.form-group input,.form-group select,.form-group textarea{
-  width:100%;padding:13px 16px;
-  font-family:'Inter',sans-serif;font-size:14px;
-  border:1px solid rgba(255,255,255,0.1);background:#0f0f0f;color:#fff;
-  outline:none;transition:border-color .2s;-webkit-appearance:none;appearance:none;
-}
-.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,0.2)}
+.form-group label{display:block;font-family:'Montserrat',sans-serif;font-weight:600;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:7px}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:13px 16px;font-family:'Inter',sans-serif;font-size:14px;border:1px solid rgba(255,255,255,.1);background:#0f0f0f;color:#fff;outline:none;transition:border-color .2s;-webkit-appearance:none;appearance:none}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,.18)}
 .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:#D71920}
 .form-group select option{background:#1a1a1a;color:#fff}
 .form-group textarea{min-height:100px;resize:vertical}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 @media(max-width:480px){.form-row{grid-template-columns:1fr}}
-.form-submit{
-  width:100%;padding:16px;background:#D71920;color:#fff;
-  font-family:'Montserrat',sans-serif;font-weight:800;font-size:13px;
-  letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;
-  transition:background .3s;margin-top:8px;
-  clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));
-}
+.form-submit{width:100%;padding:16px;background:#D71920;color:#fff;font-family:'Montserrat',sans-serif;font-weight:800;font-size:13px;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:background .3s;margin-top:8px;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px))}
 .form-submit:hover{background:#ff1e26}
-.form-note{font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,0.25);margin-top:12px;text-align:center}
+.form-note{font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,.22);margin-top:12px;text-align:center}
 .form-success{display:none;background:#0f0f0f;border:1px solid #D71920;padding:24px;text-align:center;margin-top:16px}
-.form-success p{font-family:'Inter',sans-serif;font-size:15px;color:rgba(255,255,255,0.7)}
+.form-success p{font-family:'Inter',sans-serif;font-size:15px;color:rgba(255,255,255,.7)}
 .form-success strong{color:#D71920}
 
 /* =============================================
@@ -576,23 +411,16 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
 .doc-section{background:#0B0B0B;padding:80px 5% 100px}
 .doc-inner{max-width:780px;margin:0 auto}
 .doc-inner h1{font-family:'Montserrat',sans-serif;font-weight:900;font-size:40px;color:#fff;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:8px}
-.doc-meta{font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.3);margin-bottom:48px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,0.07)}
+.doc-meta{font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.28);margin-bottom:48px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.07)}
 .doc-inner h2{font-family:'Montserrat',sans-serif;font-weight:700;font-size:18px;color:#fff;margin:36px 0 12px}
-.doc-inner p{font-family:'Inter',sans-serif;font-size:15px;color:rgba(255,255,255,0.5);line-height:1.85;margin-bottom:16px}
+.doc-inner p{font-family:'Inter',sans-serif;font-size:15px;color:rgba(255,255,255,.48);line-height:1.88;margin-bottom:16px}
 .doc-inner ul{padding-left:20px;margin-bottom:16px}
-.doc-inner ul li{font-family:'Inter',sans-serif;font-size:15px;color:rgba(255,255,255,0.5);line-height:1.85;margin-bottom:6px}
+.doc-inner ul li{font-family:'Inter',sans-serif;font-size:15px;color:rgba(255,255,255,.48);line-height:1.88;margin-bottom:6px}
 .doc-inner a{color:#D71920;text-decoration:none}
 .doc-inner a:hover{text-decoration:underline}
 
 /* =============================================
-   ANIMATIONS
-============================================= */
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-.fade-up{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
-.fade-up.visible{opacity:1;transform:translateY(0)}
-
-/* =============================================
-   RESPONSIVE
+   RESPONSIVE FIXES
 ============================================= */
 @media(max-width:700px){
   .nav-links,.nav-cta{display:none}
@@ -600,15 +428,17 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
 }
 @media(max-width:480px){
   .trust-strip{gap:20px}
-  .gallery-img{width:240px;height:165px}
+  .gallery-img{width:240px;height:164px}
 }
 </style>
 </head>
 <body>
 
-<!-- ===== NAV ===== -->
+<!-- ===========================
+     NAV
+=========================== -->
 <nav id="mainNav">
-  <button class="nav-logo" onclick="showPage('home')">RAPTOR<span>.</span>FINISH</button>
+  <img src="logo.png" alt="Raptor Finish" class="nav-logo-img" onclick="showPage('home')">
   <ul class="nav-links">
     <li><a id="nav-home" class="active" onclick="showPage('home')">Home</a></li>
     <li><a id="nav-services" onclick="showPage('services')">Services</a></li>
@@ -629,16 +459,79 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
   <span class="mob-cta" onclick="showPage('contact');closeMobile()">BOOK NOW</span>
 </div>
 
-<!-- ========================================
+<!-- SHARED FOOTER TEMPLATE (injected via JS) -->
+<template id="footerTpl">
+<footer>
+  <div class="footer-grid">
+    <div>
+      <img src="logo.png" alt="Raptor Finish" class="footer-logo-img" onclick="showPage('home')">
+      <p class="footer-tag">Built for those who notice every detail. Premium mobile auto detailing — we come to you.</p>
+      <div class="footer-badge">Mobile Auto Detailing</div>
+      <p class="footer-area">Surrey · White Rock · Langley<br>Burnaby · Richmond · Delta<br>Metro Vancouver · Fraser Valley, BC</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><span onclick="showPage('services')">Interior Detail</span></li>
+        <li><span onclick="showPage('services')">Exterior Detail</span></li>
+        <li><span onclick="showPage('services')">Full Detail Package</span></li>
+        <li><span onclick="showPage('services')">Paint Enhancement</span></li>
+        <li><span onclick="showPage('services')">Paint Correction</span></li>
+        <li><span onclick="showPage('services')">Ceramic Coating</span></li>
+        <li><span onclick="showPage('services')">Engine Bay Detail</span></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><span onclick="showPage('home')">Home</span></li>
+        <li><span onclick="showPage('about')">About Us</span></li>
+        <li><span onclick="showPage('services')">Services</span></li>
+        <li><span onclick="showPage('contact')">Contact</span></li>
+        <li><span onclick="showPage('contact')">Book a Detail</span></li>
+        <li><span onclick="showPage('privacy')">Privacy Policy</span></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-contact">
+        <a href="tel:+16044777700">(604) 477-7700</a><br>
+        <a href="mailto:raptorfinish1@gmail.com">raptorfinish1@gmail.com</a><br>
+        <a href="https://wa.me/16044777700" target="_blank" rel="noopener">WhatsApp Us</a><br>
+        Appointment Based · We Come To You
+      </div>
+      <h4 style="margin-top:24px">Follow Us</h4>
+      <div class="social-icons-row">
+        <a class="soc-icon" href="https://www.instagram.com/raptorfinish" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a class="soc-icon" href="https://www.facebook.com/people/Raptor-Finish/61563172268959/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a class="soc-icon" href="https://www.youtube.com/@raptorfinish" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" style="fill:#080808"/></svg></a>
+        <a class="soc-icon" href="https://www.tiktok.com/@raptorfinish" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg></a>
+        <a class="soc-icon" href="https://ca.pinterest.com/raptorfinish/" target="_blank" rel="noopener" aria-label="Pinterest"><svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.236 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.181-.78 1.172-4.97 1.172-4.97s-.299-.598-.299-1.482c0-1.388.806-2.428 1.808-2.428.853 0 1.267.64 1.267 1.408 0 .858-.546 2.14-.828 3.33-.236.995.499 1.806 1.476 1.806 1.771 0 3.135-1.867 3.135-4.561 0-2.385-1.715-4.052-4.163-4.052-2.837 0-4.5 2.127-4.5 4.326 0 .856.33 1.775.741 2.276a.3.3 0 0 1 .069.286c-.076.315-.244.995-.277 1.134-.044.183-.146.222-.337.134-1.249-.581-2.03-2.407-2.03-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.22-5.19 6.22-1.013 0-1.966-.527-2.292-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.937.29 1.931.446 2.962.446C17.523 22 22 17.523 22 12S17.523 2 12 2z"/></svg></a>
+        <a class="soc-icon" href="https://x.com/raptorfinish" target="_blank" rel="noopener" aria-label="X / Twitter"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a class="soc-icon" href="https://www.linkedin.com/in/raptorfinish" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a class="soc-icon" href="https://www.snapchat.com/add/raptorfinish" target="_blank" rel="noopener" aria-label="Snapchat"><svg viewBox="0 0 24 24"><path d="M12.065 2c.932 0 4.04.277 5.487 3.698.418 1.002.317 2.698.234 4.07l-.007.13c-.005.084-.01.166-.014.245.145.07.34.123.59.123.308 0 .65-.09.993-.27l.007-.003a.59.59 0 0 1 .254-.059c.171 0 .54.079.54.446 0 .325-.269.554-.555.674-.047.02-.108.04-.176.063-.332.11-.83.276-1.044.645-.027.047-.04.097-.037.147.05.872 2.14 3.304 4.662 3.73.167.028.28.18.255.347a.308.308 0 0 1-.055.143c-.467.629-2.038.988-4.782 1.095-.073.012-.137.049-.184.104-.12.144-.09.356-.054.6.026.174.053.354.053.535 0 .753-.496 1.068-1.044 1.068-.307 0-.655-.095-1.02-.193-.492-.131-1.049-.28-1.634-.28-.629 0-1.056.17-1.517.356-.514.206-1.046.42-1.873.42-.698 0-1.145-.27-1.362-.824l-.017-.043c-.119-.298-.146-.578-.172-.851-.024-.255-.047-.496-.126-.617l-.023-.035a.312.312 0 0 0-.208-.1c-2.722-.108-4.28-.47-4.746-1.097a.308.308 0 0 1-.055-.143.3.3 0 0 1 .255-.347c2.52-.426 4.61-2.857 4.661-3.73a.318.318 0 0 0-.037-.147c-.214-.369-.712-.535-1.044-.645-.068-.023-.129-.043-.176-.063-.286-.12-.555-.35-.555-.674 0-.367.369-.446.54-.446.087 0 .172.02.254.059.343.18.685.27.993.27.255 0 .45-.054.596-.125l-.014-.248c-.083-1.37-.184-3.066.234-4.068C8.026 2.277 11.133 2 12.065 2z"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Raptor Finish. All rights reserved. Metro Vancouver, BC, Canada.</p>
+    <div class="footer-legal">
+      <span onclick="showPage('privacy')">Privacy Policy</span>
+      <span onclick="showPage('contact')">Book Now</span>
+    </div>
+  </div>
+</footer>
+</template>
+
+<!-- ===========================
      HOME PAGE
-======================================== -->
+=========================== -->
 <div id="page-home" class="page active">
 
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
-    <div class="hero-overlay-bottom"></div>
+    <div class="hero-bottom-fade"></div>
     <div class="hero-content">
       <p class="hero-eyebrow">Metro Vancouver · Mobile Auto Detailing</p>
       <h1>Your Vehicle.<br><em>Fully Refined.</em></h1>
@@ -654,13 +547,12 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
     </div>
   </section>
 
-  <!-- TRUST STRIP -->
   <div class="trust-strip">
-    <div class="trust-item"><span class="trust-dot"></span>Surrey & White Rock</div>
+    <div class="trust-item"><span class="trust-dot"></span>Surrey &amp; White Rock</div>
     <div class="trust-item"><span class="trust-dot"></span>Metro Vancouver</div>
     <div class="trust-item"><span class="trust-dot"></span>Fraser Valley</div>
+    <div class="trust-item"><span class="trust-dot"></span>Appointment Based</div>
     <div class="trust-item"><span class="trust-dot"></span>We Come To You</div>
-    <div class="trust-item"><span class="trust-dot"></span>7 Premium Services</div>
   </div>
 
   <!-- ABOUT SPLIT -->
@@ -668,26 +560,26 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
     <div class="about-split">
       <div class="about-img-wrap fade-up">
         <div class="about-red-bar"></div>
-        <div class="about-img"></div>
-        <div class="about-img-accent"></div>
+        <div class="about-main-img"></div>
+        <div class="about-accent-img"></div>
       </div>
       <div class="fade-up">
         <p class="section-eyebrow">Who We Are</p>
         <h2 class="section-h2">More Than Clean.<br>Fully Refined.</h2>
         <p class="section-p">Raptor Finish is a premium mobile auto detailing brand built around precision, protection, and transformation. We don't operate out of a shop — we come directly to you, wherever you are in Metro Vancouver.</p>
         <p class="section-p" style="margin-top:14px">Every vehicle is treated with the same relentless attention to detail — whether it's a daily driver or a high-end performance car. Built for those who notice every detail.</p>
-        <button class="btn-red" onclick="showPage('about')" style="margin-top:32px;display:inline-block">OUR STORY</button>
+        <button class="btn-red" onclick="showPage('about')" style="margin-top:32px">OUR STORY</button>
         <div class="about-stats">
           <div class="stat-box"><div class="stat-num">7+</div><div class="stat-label">Services</div></div>
           <div class="stat-box"><div class="stat-num">100%</div><div class="stat-label">Mobile</div></div>
           <div class="stat-box"><div class="stat-num">YVR</div><div class="stat-label">Based</div></div>
-          <div class="stat-box"><div class="stat-num">∞</div><div class="stat-label">Detail</div></div>
+          <div class="stat-box"><div class="stat-num">∞</div><div class="stat-label">Precision</div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES DARK -->
+  <!-- SERVICES PREVIEW -->
   <section class="services-dark">
     <div class="services-dark-inner">
       <div class="section-header-row fade-up">
@@ -699,74 +591,62 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
       </div>
       <div class="svc-grid">
         <div class="svc-item fade-up">
-          <div class="svc-num">01</div>
-          <div class="svc-img"><img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=600&q=75" alt="Interior detail" loading="lazy"></div>
-          <div class="svc-title">Premium Interior Detail</div>
-          <div class="svc-desc">Deep clean of every surface, fibre, and trim inside your vehicle. Odour treatment included.</div>
+          <div class="svc-item-img"><img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=600&q=75" alt="Interior detail" loading="lazy"></div>
+          <div class="svc-item-body"><div class="svc-num">01</div><div class="svc-title">Premium Interior Detail</div><div class="svc-desc">Deep clean of every surface, fibre, and trim inside your vehicle. Odour treatment included.</div></div>
         </div>
         <div class="svc-item fade-up">
-          <div class="svc-num">02</div>
-          <div class="svc-img"><img src="https://images.unsplash.com/photo-1619405399517-d7fce0f13302?w=600&q=75" alt="Exterior detail" loading="lazy"></div>
-          <div class="svc-title">Exterior Detail</div>
-          <div class="svc-desc">Precision wash, clay bar decontamination, wheels, and paint protection.</div>
+          <div class="svc-item-img"><img src="https://images.unsplash.com/photo-1619405399517-d7fce0f13302?w=600&q=75" alt="Exterior detail" loading="lazy"></div>
+          <div class="svc-item-body"><div class="svc-num">02</div><div class="svc-title">Exterior Detail</div><div class="svc-desc">Precision wash, clay bar decontamination, wheels, and paint protection.</div></div>
         </div>
         <div class="svc-item fade-up">
           <span class="svc-badge">Most Popular</span>
-          <div class="svc-num">03</div>
-          <div class="svc-img"><img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&q=75" alt="Full detail" loading="lazy"></div>
-          <div class="svc-title">Full Detail Package</div>
-          <div class="svc-desc">The complete experience — interior and exterior fully transformed inside and out.</div>
+          <div class="svc-item-img"><img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&q=75" alt="Full detail" loading="lazy"></div>
+          <div class="svc-item-body"><div class="svc-num">03</div><div class="svc-title">Full Detail Package</div><div class="svc-desc">The complete experience — interior and exterior fully transformed.</div></div>
         </div>
         <div class="svc-item fade-up">
-          <div class="svc-num">04</div>
-          <div class="svc-img"><img src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=600&q=75" alt="Paint correction" loading="lazy"></div>
-          <div class="svc-title">Paint Correction</div>
-          <div class="svc-desc">Multi-stage polishing that removes swirls, scratches, and oxidation.</div>
+          <div class="svc-item-img"><img src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=600&q=75" alt="Paint correction" loading="lazy"></div>
+          <div class="svc-item-body"><div class="svc-num">04</div><div class="svc-title">Paint Correction</div><div class="svc-desc">Multi-stage polishing that removes swirls, scratches, and oxidation.</div></div>
         </div>
         <div class="svc-item fade-up">
-          <div class="svc-num">05</div>
-          <div class="svc-img"><img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=600&q=75" alt="Ceramic coating" loading="lazy"></div>
-          <div class="svc-title">Ceramic Coating</div>
-          <div class="svc-desc">Long-term gloss and hydrophobic protection bonded to your paint surface.</div>
+          <div class="svc-item-img"><img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=600&q=75" alt="Ceramic coating" loading="lazy"></div>
+          <div class="svc-item-body"><div class="svc-num">05</div><div class="svc-title">Ceramic Coating</div><div class="svc-desc">Long-term gloss and hydrophobic protection bonded to your paint.</div></div>
         </div>
         <div class="svc-item fade-up">
-          <div class="svc-num">06</div>
-          <div class="svc-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=75" alt="Engine bay" loading="lazy"></div>
-          <div class="svc-title">Engine Bay Detail</div>
-          <div class="svc-desc">Remove grease and grime — make your engine bay look as sharp as the exterior.</div>
+          <div class="svc-item-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=75" alt="Engine bay" loading="lazy"></div>
+          <div class="svc-item-body"><div class="svc-num">06</div><div class="svc-title">Engine Bay Detail</div><div class="svc-desc">Remove grease and grime — make your engine bay look as sharp as the exterior.</div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- GALLERY STRIP -->
+  <!-- GALLERY -->
   <section class="gallery-strip">
-    <div class="gallery-strip-inner fade-up">
+    <div class="gallery-strip-header fade-up">
       <p class="section-eyebrow" style="text-align:center">Our Work</p>
-      <h2 class="section-h2" style="text-align:center">Precision & Care</h2>
+      <h2 class="section-h2" style="text-align:center">Precision &amp; Care</h2>
       <p class="section-p" style="text-align:center;max-width:500px;margin:0 auto">Real transformations across daily drivers, performance vehicles, and luxury cars across Metro Vancouver.</p>
     </div>
-    <div class="gallery-overflow" style="margin-top:40px">
+    <div class="gallery-overflow">
       <div class="gallery-fade-l"></div>
       <div class="gallery-fade-r"></div>
       <div class="gallery-track">
-        <div class="gallery-img"><img src="https://images.unsplash.com/photo-1619405399517-d7fce0f13302?w=640&q=75" alt="Detail work" loading="lazy"></div>
-        <div class="gallery-img"><img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=640&q=75" alt="Car detailing" loading="lazy"></div>
-        <div class="gallery-img"><img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=640&q=75" alt="Interior clean" loading="lazy"></div>
-        <div class="gallery-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=640&q=75" alt="Car shine" loading="lazy"></div>
+        <div class="gallery-img"><img src="https://images.unsplash.com/photo-1619405399517-d7fce0f13302?w=640&q=75" alt="Detailing" loading="lazy"></div>
+        <div class="gallery-img"><img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=640&q=75" alt="Car" loading="lazy"></div>
+        <div class="gallery-img"><img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=640&q=75" alt="Interior" loading="lazy"></div>
+        <div class="gallery-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=640&q=75" alt="Shine" loading="lazy"></div>
         <div class="gallery-img"><img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=640&q=75" alt="Luxury car" loading="lazy"></div>
-        <div class="gallery-img"><img src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=640&q=75" alt="Paint correction" loading="lazy"></div>
-        <div class="gallery-img"><img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=640&q=75" alt="Detailing" loading="lazy"></div>
-        <div class="gallery-img"><img src="https://images.unsplash.com/photo-1600706432502-77a0e2e32790?w=640&q=75" alt="Car wash" loading="lazy"></div>
-        <!-- duplicated for seamless loop -->
-        <div class="gallery-img"><img src="https://images.unsplash.com/photo-1619405399517-d7fce0f13302?w=640&q=75" alt="Detail work" loading="lazy"></div>
-        <div class="gallery-img"><img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=640&q=75" alt="Car detailing" loading="lazy"></div>
-        <div class="gallery-img"><img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=640&q=75" alt="Interior clean" loading="lazy"></div>
-        <div class="gallery-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=640&q=75" alt="Car shine" loading="lazy"></div>
+        <div class="gallery-img"><img src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=640&q=75" alt="Polish" loading="lazy"></div>
+        <div class="gallery-img"><img src="https://images.unsplash.com/photo-1600706432502-77a0e2e32790?w=640&q=75" alt="Clean car" loading="lazy"></div>
+        <div class="gallery-img"><img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=640&q=75" alt="Sports car" loading="lazy"></div>
+        <!-- duplicate for seamless loop -->
+        <div class="gallery-img"><img src="https://images.unsplash.com/photo-1619405399517-d7fce0f13302?w=640&q=75" alt="Detailing" loading="lazy"></div>
+        <div class="gallery-img"><img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=640&q=75" alt="Car" loading="lazy"></div>
+        <div class="gallery-img"><img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=640&q=75" alt="Interior" loading="lazy"></div>
+        <div class="gallery-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=640&q=75" alt="Shine" loading="lazy"></div>
         <div class="gallery-img"><img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=640&q=75" alt="Luxury car" loading="lazy"></div>
-        <div class="gallery-img"><img src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=640&q=75" alt="Paint correction" loading="lazy"></div>
-        <div class="gallery-img"><img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=640&q=75" alt="Detailing" loading="lazy"></div>
-        <div class="gallery-img"><img src="https://images.unsplash.com/photo-1600706432502-77a0e2e32790?w=640&q=75" alt="Car wash" loading="lazy"></div>
+        <div class="gallery-img"><img src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=640&q=75" alt="Polish" loading="lazy"></div>
+        <div class="gallery-img"><img src="https://images.unsplash.com/photo-1600706432502-77a0e2e32790?w=640&q=75" alt="Clean car" loading="lazy"></div>
+        <div class="gallery-img"><img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=640&q=75" alt="Sports car" loading="lazy"></div>
       </div>
     </div>
   </section>
@@ -774,7 +654,7 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
   <!-- WHY -->
   <section class="why-section">
     <div class="why-inner">
-      <div class="fade-up" style="text-align:center;max-width:600px;margin:0 auto 0">
+      <div class="fade-up" style="text-align:center;max-width:600px;margin:0 auto">
         <p class="section-eyebrow">Why Raptor Finish</p>
         <h2 class="section-h2">Precision in Every Pass</h2>
       </div>
@@ -782,12 +662,12 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
         <div class="why-item fade-up">
           <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
           <div class="why-title">We Come To You</div>
-          <div class="why-desc">No drop-off. No waiting. We arrive at your home, office, or wherever works for you.</div>
+          <div class="why-desc">No drop-off. No waiting. We arrive at your home, office, or wherever works for you. 100% appointment based.</div>
         </div>
         <div class="why-item fade-up">
           <div class="why-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg></div>
           <div class="why-title">Premium Results</div>
-          <div class="why-desc">Professional-grade products and techniques delivering a showroom-quality finish every time.</div>
+          <div class="why-desc">Professional-grade products and techniques delivering a showroom-quality finish every single time.</div>
         </div>
         <div class="why-item fade-up">
           <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
@@ -797,7 +677,7 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
         <div class="why-item fade-up">
           <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
           <div class="why-title">Built for Car Owners Who Care</div>
-          <div class="why-desc">We speak the same language as our clients — quality over everything, always.</div>
+          <div class="why-desc">We speak the same language as our clients — quality, precision, and pride over everything.</div>
         </div>
       </div>
     </div>
@@ -820,81 +700,19 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
     <button class="btn-white" onclick="showPage('contact')">BOOK YOUR DETAIL</button>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-grid">
-      <div>
-        <button class="footer-logo-btn" onclick="showPage('home')">RAPTOR<span>.</span>FINISH</button>
-        <p class="footer-tag">Built for those who notice every detail. Premium mobile auto detailing — we come to you.</p>
-        <div class="footer-badge">Mobile Auto Detailing</div>
-        <p class="footer-area">Surrey · White Rock · Langley<br>Burnaby · Richmond · Delta<br>Metro Vancouver · Fraser Valley, BC</p>
-      </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <ul>
-          <li><span onclick="showPage('services')">Interior Detail</span></li>
-          <li><span onclick="showPage('services')">Exterior Detail</span></li>
-          <li><span onclick="showPage('services')">Full Detail Package</span></li>
-          <li><span onclick="showPage('services')">Paint Enhancement</span></li>
-          <li><span onclick="showPage('services')">Paint Correction</span></li>
-          <li><span onclick="showPage('services')">Ceramic Coating</span></li>
-          <li><span onclick="showPage('services')">Engine Bay Detail</span></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><span onclick="showPage('home')">Home</span></li>
-          <li><span onclick="showPage('about')">About Us</span></li>
-          <li><span onclick="showPage('services')">Services</span></li>
-          <li><span onclick="showPage('contact')">Contact</span></li>
-          <li><span onclick="showPage('contact')">Book a Detail</span></li>
-          <li><span onclick="showPage('privacy')">Privacy Policy</span></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <div class="footer-contact-block">
-          <a href="tel:+16044777700">(604) 477-7700</a><br>
-          <a href="mailto:raptorfinish1@gmail.com">raptorfinish1@gmail.com</a><br>
-          <a href="https://wa.me/16044777700" target="_blank" rel="noopener">WhatsApp Us</a><br>
-          Mon–Sat: 8AM – 7PM<br>Sunday: By Appt
-        </div>
-        <h4 style="margin-top:24px">Follow</h4>
-        <div class="social-row">
-          <a class="social-link" href="https://www.instagram.com/raptorfinish" target="_blank" rel="noopener">Instagram</a>
-          <a class="social-link" href="https://www.facebook.com/people/Raptor-Finish/61563172268959/" target="_blank" rel="noopener">Facebook</a>
-          <a class="social-link" href="https://www.youtube.com/@raptorfinish" target="_blank" rel="noopener">YouTube</a>
-          <a class="social-link" href="https://www.tiktok.com/@raptorfinish" target="_blank" rel="noopener">TikTok</a>
-          <a class="social-link" href="https://ca.pinterest.com/raptorfinish/" target="_blank" rel="noopener">Pinterest</a>
-          <a class="social-link" href="https://x.com/raptorfinish" target="_blank" rel="noopener">X / Twitter</a>
-          <a class="social-link" href="https://www.linkedin.com/in/raptorfinish" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="social-link" href="https://www.snapchat.com/add/raptorfinish" target="_blank" rel="noopener">Snapchat</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 Raptor Finish. All rights reserved. Metro Vancouver, BC, Canada.</p>
-      <div class="footer-legal">
-        <span onclick="showPage('privacy')">Privacy Policy</span>
-        <span onclick="showPage('contact')">Book Now</span>
-      </div>
-    </div>
-  </footer>
+  <div id="footer-home"></div>
+</div>
 
-</div><!-- end home -->
-
-<!-- ========================================
+<!-- ===========================
      SERVICES PAGE
-======================================== -->
+=========================== -->
 <div id="page-services" class="page">
-
   <section class="page-hero">
     <div class="page-hero-bg"></div>
     <div class="page-hero-content">
       <p class="page-hero-eyebrow">What We Offer</p>
       <h1>Premium Detailing<br>Services</h1>
-      <p>Every service performed with precision, the right tools, and a relentless focus on quality. We come to you.</p>
+      <p>Every service performed with precision, the right tools, and a relentless focus on quality. Appointment based — we come to you.</p>
       <div class="page-hero-line"></div>
     </div>
   </section>
@@ -906,8 +724,7 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
         <div class="svc-full-card fade-up">
           <div class="svc-full-img"><img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=700&q=75" alt="Interior detail" loading="lazy"></div>
           <div class="svc-full-body">
-            <p class="svc-full-num">01</p>
-            <h2>Premium Interior Detail</h2>
+            <p class="svc-full-num">01</p><h2>Premium Interior Detail</h2>
             <p>A deep, thorough interior clean that eliminates dirt, odours, and grime — leaving every surface, fibre, and trim showroom-fresh.</p>
             <ul class="svc-includes">
               <li>Deep vacuum — seats, carpet, mats, trunk</li>
@@ -922,8 +739,7 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
         <div class="svc-full-card fade-up">
           <div class="svc-full-img"><img src="https://images.unsplash.com/photo-1619405399517-d7fce0f13302?w=700&q=75" alt="Exterior detail" loading="lazy"></div>
           <div class="svc-full-body">
-            <p class="svc-full-num">02</p>
-            <h2>Exterior Detail</h2>
+            <p class="svc-full-num">02</p><h2>Exterior Detail</h2>
             <p>A precision exterior clean that restores gloss, removes contamination, and protects your paint against the elements.</p>
             <ul class="svc-includes">
               <li>Hand wash and rinse</li>
@@ -939,8 +755,7 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
           <span class="svc-full-badge">Most Popular</span>
           <div class="svc-full-img"><img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=700&q=75" alt="Full detail" loading="lazy"></div>
           <div class="svc-full-body">
-            <p class="svc-full-num">03</p>
-            <h2>Full Detail Package</h2>
+            <p class="svc-full-num">03</p><h2>Full Detail Package</h2>
             <p>The complete Raptor Finish experience. Interior and exterior combined — your vehicle fully transformed inside and out.</p>
             <ul class="svc-includes">
               <li>Full interior detail</li>
@@ -955,9 +770,8 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
         <div class="svc-full-card fade-up">
           <div class="svc-full-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=75" alt="Paint enhancement" loading="lazy"></div>
           <div class="svc-full-body">
-            <p class="svc-full-num">04</p>
-            <h2>Paint Enhancement</h2>
-            <p>A single-stage machine polish that removes light swirls, water spots, and minor defects — restoring clarity and gloss.</p>
+            <p class="svc-full-num">04</p><h2>Paint Enhancement</h2>
+            <p>A single-stage machine polish that removes light swirls, water spots, and minor defects — restoring clarity and deep gloss.</p>
             <ul class="svc-includes">
               <li>Wash and decontamination</li>
               <li>Single-stage machine polish</li>
@@ -971,8 +785,7 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
           <span class="svc-full-badge">Advanced</span>
           <div class="svc-full-img"><img src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=700&q=75" alt="Paint correction" loading="lazy"></div>
           <div class="svc-full-body">
-            <p class="svc-full-num">05</p>
-            <h2>Paint Correction</h2>
+            <p class="svc-full-num">05</p><h2>Paint Correction</h2>
             <p>Multi-stage machine polishing that removes deep swirl marks, scratches, and oxidation — restoring a flawless mirror finish.</p>
             <ul class="svc-includes">
               <li>Full wash and clay decontamination</li>
@@ -987,8 +800,7 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
           <span class="svc-full-badge">Premium Protection</span>
           <div class="svc-full-img"><img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=700&q=75" alt="Ceramic coating" loading="lazy"></div>
           <div class="svc-full-body">
-            <p class="svc-full-num">06</p>
-            <h2>Ceramic Coating</h2>
+            <p class="svc-full-num">06</p><h2>Ceramic Coating</h2>
             <p>The ultimate long-term paint protection — a professional-grade ceramic coating delivering years of gloss and hydrophobic protection.</p>
             <ul class="svc-includes">
               <li>Full paint decontamination and correction</li>
@@ -1003,8 +815,7 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
         <div class="svc-full-card fade-up">
           <div class="svc-full-img"><img src="https://images.unsplash.com/photo-1600706432502-77a0e2e32790?w=700&q=75" alt="Engine bay" loading="lazy"></div>
           <div class="svc-full-body">
-            <p class="svc-full-num">07</p>
-            <h2>Engine Bay Detail</h2>
+            <p class="svc-full-num">07</p><h2>Engine Bay Detail</h2>
             <p>A careful and thorough engine bay clean that removes grease, grime, and buildup — making it look as sharp as the exterior.</p>
             <ul class="svc-includes">
               <li>Degreaser application and rinse</li>
@@ -1021,27 +832,17 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
 
   <section class="cta-strip">
     <h2>Ready to Book?</h2>
-    <p>We come to your home, office, or anywhere in Metro Vancouver. Let's get your vehicle looking its best.</p>
+    <p>We come to your home, office, or anywhere in Metro Vancouver. All bookings by appointment — we come to you.</p>
     <button class="btn-white" onclick="showPage('contact')">BOOK YOUR DETAIL</button>
   </section>
 
-  <footer>
-    <div class="footer-bottom" style="max-width:1200px;margin:0 auto;border-top:none;padding-top:0">
-      <p>&copy; 2025 Raptor Finish. All rights reserved.</p>
-      <div class="footer-legal">
-        <span onclick="showPage('home')">Home</span>
-        <span onclick="showPage('privacy')">Privacy Policy</span>
-        <span onclick="showPage('contact')">Book Now</span>
-      </div>
-    </div>
-  </footer>
-</div><!-- end services -->
+  <div id="footer-services"></div>
+</div>
 
-<!-- ========================================
+<!-- ===========================
      ABOUT PAGE
-======================================== -->
+=========================== -->
 <div id="page-about" class="page">
-
   <section class="page-hero">
     <div class="page-hero-bg"></div>
     <div class="page-hero-content">
@@ -1054,14 +855,14 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
 
   <section class="about-section">
     <div class="about-inner">
-      <div class="about-grid">
+      <div class="about-main-grid">
         <div class="about-large-img fade-up"></div>
-        <div class="fade-up">
+        <div class="about-text fade-up">
           <p class="section-eyebrow">Who We Are</p>
-          <h2 class="section-h2" style="font-size:clamp(26px,3.5vw,42px)">A Premium Mobile Detailing Brand</h2>
-          <p style="font-family:'Inter',sans-serif;font-size:16px;color:rgba(255,255,255,0.55);line-height:1.85;margin-bottom:16px">Raptor Finish is a premium mobile auto detailing business based in Metro Vancouver — serving Surrey, White Rock, the Lower Mainland, and the Fraser Valley. We don't operate out of a fixed location. We come to you.</p>
-          <p style="font-family:'Inter',sans-serif;font-size:16px;color:rgba(255,255,255,0.55);line-height:1.85;margin-bottom:16px">We created Raptor Finish because we saw a gap between basic car washes and the level of care that serious vehicle owners actually want. Our work is detailed, precise, and built around delivering a result that speaks for itself.</p>
-          <p style="font-family:'Inter',sans-serif;font-size:16px;color:rgba(255,255,255,0.55);line-height:1.85">Our long-term vision is to grow into luxury, performance, and exotic vehicle detailing — and eventually, private aviation. But right now, our focus is simple: earn your trust through quality work.</p>
+          <h2 class="section-h2" style="font-size:clamp(26px,3.5vw,44px)">A Premium Mobile Detailing Brand</h2>
+          <p>Raptor Finish is a premium mobile auto detailing business based in Metro Vancouver — serving Surrey, White Rock, the Lower Mainland, and the Fraser Valley. We don't operate out of a fixed location. We come to you, by appointment.</p>
+          <p>We created Raptor Finish because we saw a gap between basic car washes and the level of care that serious vehicle owners actually want. Our work is detailed, precise, and built around delivering a result that speaks for itself.</p>
+          <p>Our long-term vision is to grow into luxury, performance, and exotic vehicle detailing — and eventually, private aviation. But right now, our focus is simple: earn your trust through quality work.</p>
         </div>
       </div>
     </div>
@@ -1071,26 +872,10 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
     <div class="values-inner">
       <h2 class="section-h2 fade-up" style="text-align:center">What We Stand For</h2>
       <div class="values-grid">
-        <div class="value-card fade-up">
-          <div class="value-big-num">01</div>
-          <div class="value-title">Precision</div>
-          <div class="value-desc">Every surface, edge, and panel is worked with intention. We don't cut corners — we detail them.</div>
-        </div>
-        <div class="value-card fade-up">
-          <div class="value-big-num">02</div>
-          <div class="value-title">Protection</div>
-          <div class="value-desc">From ceramic coatings to paint correction, we protect your investment and extend its life.</div>
-        </div>
-        <div class="value-card fade-up">
-          <div class="value-big-num">03</div>
-          <div class="value-title">Transformation</div>
-          <div class="value-desc">We restore vehicles to a condition that exceeds expectations. Before and after is a statement.</div>
-        </div>
-        <div class="value-card fade-up">
-          <div class="value-big-num">04</div>
-          <div class="value-title">Convenience</div>
-          <div class="value-desc">We bring the studio to your driveway. Zero drop-off, zero waiting, zero hassle.</div>
-        </div>
+        <div class="value-card fade-up"><div class="value-big-num">01</div><div class="value-title">Precision</div><div class="value-desc">Every surface, edge, and panel is worked with intention. We don't cut corners — we detail them.</div></div>
+        <div class="value-card fade-up"><div class="value-big-num">02</div><div class="value-title">Protection</div><div class="value-desc">From ceramic coatings to paint correction, we protect your investment and extend its life.</div></div>
+        <div class="value-card fade-up"><div class="value-big-num">03</div><div class="value-title">Transformation</div><div class="value-desc">We restore vehicles to a condition that exceeds expectations. Before and after is a statement.</div></div>
+        <div class="value-card fade-up"><div class="value-big-num">04</div><div class="value-title">Convenience</div><div class="value-desc">We bring the studio to your driveway. Zero drop-off, zero waiting, zero hassle. By appointment.</div></div>
       </div>
     </div>
   </section>
@@ -1106,36 +891,25 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
     <button class="btn-white" onclick="showPage('contact')">BOOK YOUR DETAIL</button>
   </section>
 
-  <footer>
-    <div class="footer-bottom" style="max-width:1200px;margin:0 auto;border-top:none;padding-top:0">
-      <p>&copy; 2025 Raptor Finish. All rights reserved.</p>
-      <div class="footer-legal">
-        <span onclick="showPage('home')">Home</span>
-        <span onclick="showPage('privacy')">Privacy Policy</span>
-        <span onclick="showPage('contact')">Book Now</span>
-      </div>
-    </div>
-  </footer>
-</div><!-- end about -->
+  <div id="footer-about"></div>
+</div>
 
-<!-- ========================================
+<!-- ===========================
      CONTACT PAGE
-======================================== -->
+=========================== -->
 <div id="page-contact" class="page">
-
   <section class="page-hero">
     <div class="page-hero-bg"></div>
     <div class="page-hero-content">
       <p class="page-hero-eyebrow">Get In Touch</p>
       <h1>Book Your Detail</h1>
-      <p>We come to you — at your home, office, or wherever works best. Serving Metro Vancouver, Surrey, White Rock, and the Fraser Valley.</p>
+      <p>We come to you — at your home, office, or wherever works best. All bookings by appointment. Serving Metro Vancouver, Surrey, White Rock, and the Fraser Valley.</p>
       <div class="page-hero-line"></div>
     </div>
   </section>
 
   <section class="contact-section">
     <div class="contact-wrap">
-
       <div class="contact-left fade-up">
         <h2>Contact Information</h2>
 
@@ -1159,52 +933,40 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
         </div>
 
         <div class="c-block">
+          <p class="c-label">Booking</p>
+          <p>Appointment based · Mobile service<br>We come to you anywhere in Metro Vancouver</p>
+        </div>
+
+        <div class="c-block">
           <p class="c-label">Service Area</p>
           <p>Surrey · White Rock · Langley · Burnaby<br>Richmond · Delta · Metro Vancouver<br>Lower Mainland · Fraser Valley, BC</p>
         </div>
 
         <div class="c-block">
-          <p class="c-label">Hours</p>
-          <p>Monday – Saturday: 8:00 AM – 7:00 PM<br>Sunday: By appointment</p>
-        </div>
-
-        <div class="c-block">
           <p class="c-label">Follow Us</p>
-          <div class="c-social">
-            <a class="c-social-btn" href="https://www.instagram.com/raptorfinish" target="_blank" rel="noopener"><div class="c-social-label">Instagram</div><div class="c-social-handle">@raptorfinish</div></a>
-            <a class="c-social-btn" href="https://www.facebook.com/people/Raptor-Finish/61563172268959/" target="_blank" rel="noopener"><div class="c-social-label">Facebook</div><div class="c-social-handle">Raptor Finish</div></a>
-            <a class="c-social-btn" href="https://www.youtube.com/@raptorfinish" target="_blank" rel="noopener"><div class="c-social-label">YouTube</div><div class="c-social-handle">@raptorfinish</div></a>
-            <a class="c-social-btn" href="https://www.tiktok.com/@raptorfinish" target="_blank" rel="noopener"><div class="c-social-label">TikTok</div><div class="c-social-handle">@raptorfinish</div></a>
-            <a class="c-social-btn" href="https://ca.pinterest.com/raptorfinish/" target="_blank" rel="noopener"><div class="c-social-label">Pinterest</div><div class="c-social-handle">raptorfinish</div></a>
-            <a class="c-social-btn" href="https://x.com/raptorfinish" target="_blank" rel="noopener"><div class="c-social-label">X / Twitter</div><div class="c-social-handle">@raptorfinish</div></a>
-            <a class="c-social-btn" href="https://www.linkedin.com/in/raptorfinish" target="_blank" rel="noopener"><div class="c-social-label">LinkedIn</div><div class="c-social-handle">Raptor Finish</div></a>
-            <a class="c-social-btn" href="https://www.snapchat.com/add/raptorfinish" target="_blank" rel="noopener"><div class="c-social-label">Snapchat</div><div class="c-social-handle">raptorfinish</div></a>
+          <div class="contact-social-icons">
+            <a class="csoc-icon" title="Instagram" href="https://www.instagram.com/raptorfinish" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a class="csoc-icon" title="Facebook" href="https://www.facebook.com/people/Raptor-Finish/61563172268959/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a class="csoc-icon" title="YouTube" href="https://www.youtube.com/@raptorfinish" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" style="fill:#0B0B0B"/></svg></a>
+            <a class="csoc-icon" title="TikTok" href="https://www.tiktok.com/@raptorfinish" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg></a>
+            <a class="csoc-icon" title="Pinterest" href="https://ca.pinterest.com/raptorfinish/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.236 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.181-.78 1.172-4.97 1.172-4.97s-.299-.598-.299-1.482c0-1.388.806-2.428 1.808-2.428.853 0 1.267.64 1.267 1.408 0 .858-.546 2.14-.828 3.33-.236.995.499 1.806 1.476 1.806 1.771 0 3.135-1.867 3.135-4.561 0-2.385-1.715-4.052-4.163-4.052-2.837 0-4.5 2.127-4.5 4.326 0 .856.33 1.775.741 2.276a.3.3 0 0 1 .069.286c-.076.315-.244.995-.277 1.134-.044.183-.146.222-.337.134-1.249-.581-2.03-2.407-2.03-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.22-5.19 6.22-1.013 0-1.966-.527-2.292-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.937.29 1.931.446 2.962.446C17.523 22 22 17.523 22 12S17.523 2 12 2z"/></svg></a>
+            <a class="csoc-icon" title="X / Twitter" href="https://x.com/raptorfinish" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a class="csoc-icon" title="LinkedIn" href="https://www.linkedin.com/in/raptorfinish" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a class="csoc-icon" title="Snapchat" href="https://www.snapchat.com/add/raptorfinish" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12.065 2c.932 0 4.04.277 5.487 3.698.418 1.002.317 2.698.234 4.07l-.007.13c-.005.084-.01.166-.014.245.145.07.34.123.59.123.308 0 .65-.09.993-.27l.007-.003a.59.59 0 0 1 .254-.059c.171 0 .54.079.54.446 0 .325-.269.554-.555.674-.047.02-.108.04-.176.063-.332.11-.83.276-1.044.645-.027.047-.04.097-.037.147.05.872 2.14 3.304 4.662 3.73.167.028.28.18.255.347a.308.308 0 0 1-.055.143c-.467.629-2.038.988-4.782 1.095-.073.012-.137.049-.184.104-.12.144-.09.356-.054.6.026.174.053.354.053.535 0 .753-.496 1.068-1.044 1.068-.307 0-.655-.095-1.02-.193-.492-.131-1.049-.28-1.634-.28-.629 0-1.056.17-1.517.356-.514.206-1.046.42-1.873.42-.698 0-1.145-.27-1.362-.824l-.017-.043c-.119-.298-.146-.578-.172-.851-.024-.255-.047-.496-.126-.617l-.023-.035a.312.312 0 0 0-.208-.1c-2.722-.108-4.28-.47-4.746-1.097a.308.308 0 0 1-.055-.143.3.3 0 0 1 .255-.347c2.52-.426 4.61-2.857 4.661-3.73a.318.318 0 0 0-.037-.147c-.214-.369-.712-.535-1.044-.645-.068-.023-.129-.043-.176-.063-.286-.12-.555-.35-.555-.674 0-.367.369-.446.54-.446.087 0 .172.02.254.059.343.18.685.27.993.27.255 0 .45-.054.596-.125l-.014-.248c-.083-1.37-.184-3.066.234-4.068C8.026 2.277 11.133 2 12.065 2z"/></svg></a>
           </div>
         </div>
       </div>
 
       <div class="booking-form-card fade-up">
         <h2>Request a Booking</h2>
-        <p class="form-sub">Fill in your details and we'll be in touch within 24 hours to confirm your appointment.</p>
+        <p class="form-sub">Fill in your details and we'll be in touch to confirm your appointment. Mobile service — we come to you.</p>
         <form id="bookingForm" action="https://formspree.io/f/xaqzqybv" method="POST">
           <div class="form-row">
-            <div class="form-group">
-              <label>First Name</label>
-              <input type="text" name="first_name" placeholder="John" required>
-            </div>
-            <div class="form-group">
-              <label>Last Name</label>
-              <input type="text" name="last_name" placeholder="Smith" required>
-            </div>
+            <div class="form-group"><label>First Name</label><input type="text" name="first_name" placeholder="John" required></div>
+            <div class="form-group"><label>Last Name</label><input type="text" name="last_name" placeholder="Smith" required></div>
           </div>
-          <div class="form-group">
-            <label>Phone Number</label>
-            <input type="tel" name="phone" placeholder="+1 604 000 0000" required>
-          </div>
-          <div class="form-group">
-            <label>Email</label>
-            <input type="email" name="email" placeholder="you@email.com">
-          </div>
+          <div class="form-group"><label>Phone Number</label><input type="tel" name="phone" placeholder="+1 604 000 0000" required></div>
+          <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="you@email.com"></div>
           <div class="form-group">
             <label>Service Requested</label>
             <select name="service" required>
@@ -1219,54 +981,33 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
               <option>Not Sure — Contact Me</option>
             </select>
           </div>
-          <div class="form-group">
-            <label>Vehicle (Year, Make, Model)</label>
-            <input type="text" name="vehicle" placeholder="e.g. 2021 Honda Civic" required>
-          </div>
-          <div class="form-group">
-            <label>Location / Address</label>
-            <input type="text" name="location" placeholder="Surrey, White Rock, Langley..." required>
-          </div>
-          <div class="form-group">
-            <label>Preferred Date &amp; Time</label>
-            <input type="text" name="datetime" placeholder="e.g. Saturday morning, flexible, etc.">
-          </div>
-          <div class="form-group">
-            <label>Additional Notes</label>
-            <textarea name="notes" placeholder="Any specific concerns, stains, or details we should know about?"></textarea>
-          </div>
+          <div class="form-group"><label>Vehicle (Year, Make, Model)</label><input type="text" name="vehicle" placeholder="e.g. 2021 Honda Civic" required></div>
+          <div class="form-group"><label>Your Location / Address</label><input type="text" name="location" placeholder="Surrey, White Rock, Langley..." required></div>
+          <div class="form-group"><label>Preferred Date &amp; Time</label><input type="text" name="datetime" placeholder="e.g. Saturday morning, flexible, etc."></div>
+          <div class="form-group"><label>Additional Notes</label><textarea name="notes" placeholder="Any specific concerns, stains, or details we should know about?"></textarea></div>
           <button type="submit" class="form-submit">SEND BOOKING REQUEST</button>
-          <p class="form-note">We respond within 24 hours. For faster response, WhatsApp us directly.</p>
+          <p class="form-note">For fastest response, WhatsApp us directly at (604) 477-7700.</p>
         </form>
         <div class="form-success" id="formSuccess">
-          <p><strong>Thank you!</strong> Your booking request has been received. We'll be in touch within 24 hours.</p>
+          <p><strong>Thank you!</strong> Your booking request has been received. We'll be in touch shortly to confirm your appointment.</p>
         </div>
       </div>
-
     </div>
   </section>
 
-  <footer>
-    <div class="footer-bottom" style="max-width:1200px;margin:0 auto;border-top:none;padding-top:0">
-      <p>&copy; 2025 Raptor Finish. All rights reserved.</p>
-      <div class="footer-legal">
-        <span onclick="showPage('home')">Home</span>
-        <span onclick="showPage('privacy')">Privacy Policy</span>
-      </div>
-    </div>
-  </footer>
-</div><!-- end contact -->
+  <div id="footer-contact"></div>
+</div>
 
-<!-- ========================================
+<!-- ===========================
      PRIVACY PAGE
-======================================== -->
+=========================== -->
 <div id="page-privacy" class="page">
   <section class="page-hero">
     <div class="page-hero-bg"></div>
     <div class="page-hero-content">
       <p class="page-hero-eyebrow">Legal</p>
       <h1>Privacy Policy</h1>
-      <p>How we collect, use, and protect your information.</p>
+      <p>How we collect, use, and protect your personal information.</p>
       <div class="page-hero-line"></div>
     </div>
   </section>
@@ -1292,7 +1033,7 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
         <li>Comply with applicable legal obligations</li>
       </ul>
       <h2>3. How We Share Your Information</h2>
-      <p>We do not sell, rent, or trade your personal information. We may share information with third-party service providers used to operate our business (e.g., Square, Google, Formspree) or as required by law.</p>
+      <p>We do not sell, rent, or trade your personal information. We may share information with third-party service providers used to operate our business (e.g., Formspree, Google) or as required by law.</p>
       <h2>4. Cookies and Analytics</h2>
       <p>Our website may use cookies and analytics tools such as Google Analytics. You can disable cookies through your browser settings at any time.</p>
       <h2>5. Data Retention</h2>
@@ -1300,9 +1041,9 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
       <h2>6. Your Rights (PIPEDA — Canada)</h2>
       <p>As a Canadian resident, you have the right to access, correct, or request deletion of your personal information. Contact us at <a href="mailto:raptorfinish1@gmail.com">raptorfinish1@gmail.com</a>.</p>
       <h2>7. Data Security</h2>
-      <p>We take reasonable steps to protect your personal information. However, no digital system is completely secure. Contact us directly with any concerns.</p>
+      <p>We take reasonable steps to protect your personal information. No digital system is completely secure. Contact us directly with any concerns.</p>
       <h2>8. Third-Party Links</h2>
-      <p>Our website may contain links to third-party platforms (Instagram, TikTok, etc.). We are not responsible for their privacy practices.</p>
+      <p>Our website may contain links to third-party platforms. We are not responsible for their privacy practices.</p>
       <h2>9. Children's Privacy</h2>
       <p>Our services are not directed to individuals under 18. We do not knowingly collect personal information from minors.</p>
       <h2>10. Changes to This Policy</h2>
@@ -1316,53 +1057,55 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
     </div>
   </section>
 
-  <footer>
-    <div class="footer-bottom" style="max-width:1200px;margin:0 auto;border-top:none;padding-top:0">
-      <p>&copy; 2025 Raptor Finish. All rights reserved.</p>
-      <div class="footer-legal">
-        <span onclick="showPage('home')">Home</span>
-        <span onclick="showPage('contact')">Book Now</span>
-      </div>
-    </div>
-  </footer>
-</div><!-- end privacy -->
+  <div id="footer-privacy"></div>
+</div>
 
-<!-- ========================================
+<!-- ===========================
      JAVASCRIPT
-======================================== -->
+=========================== -->
 <script>
+// INJECT FOOTER ON ALL PAGES
+var footerIds=['footer-home','footer-services','footer-about','footer-contact','footer-privacy'];
+var tpl=document.getElementById('footerTpl').innerHTML;
+footerIds.forEach(function(id){
+  var el=document.getElementById(id);
+  if(el)el.innerHTML=tpl;
+});
+
 // PAGE NAVIGATION
 function showPage(id){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
+  document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active')});
+  document.querySelectorAll('.nav-links a').forEach(function(a){a.classList.remove('active')});
   document.getElementById('page-'+id).classList.add('active');
   var n=document.getElementById('nav-'+id);
   if(n)n.classList.add('active');
   window.scrollTo({top:0,behavior:'instant'});
-  observeFadeUps();
+  setTimeout(observeFadeUps,50);
 }
 
 // MOBILE MENU
 function toggleMobile(){document.getElementById('mobileMenu').classList.toggle('open')}
 function closeMobile(){document.getElementById('mobileMenu').classList.remove('open')}
 
-// NAV SCROLL
+// NAV SCROLL EFFECT
 window.addEventListener('scroll',function(){
   document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>40);
 });
 
 // FADE UP ON SCROLL
 function observeFadeUps(){
-  var els=document.querySelectorAll('.page.active .fade-up');
+  var els=document.querySelectorAll('.page.active .fade-up:not(.visible)');
   if(!els.length)return;
   var io=new IntersectionObserver(function(entries){
     entries.forEach(function(e){
       if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}
     });
-  },{threshold:.12});
+  },{threshold:.1});
   els.forEach(function(el){io.observe(el)});
 }
-document.addEventListener('DOMContentLoaded',observeFadeUps);
+document.addEventListener('DOMContentLoaded',function(){
+  setTimeout(observeFadeUps,100);
+});
 
 // FORMSPREE AJAX
 var form=document.getElementById('bookingForm');
