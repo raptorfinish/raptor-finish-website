@@ -227,18 +227,27 @@ nav.scrolled{background:rgba(11,11,11,0.96);backdrop-filter:blur(20px);border-bo
 .stat-label{font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,.35);margin-top:5px;letter-spacing:.07em;text-transform:uppercase}
 
 /* =============================================
-   BODY TEXT BLOCK (AEO fix — 300+ words)
+   SEO CONTENT SECTION — styled as premium brand section
 ============================================= */
-.body-text-section{background:#0d0d0d;padding:80px 5%}
-.body-text-inner{max-width:1000px;margin:0 auto}
-.body-text-inner h2{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(26px,3.5vw,40px);text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:24px}
-.body-text-inner p{font-family:'Inter',sans-serif;font-size:16px;color:rgba(255,255,255,.52);line-height:1.9;margin-bottom:18px}
-.body-text-inner h3{font-family:'Montserrat',sans-serif;font-weight:700;font-size:18px;color:#fff;margin:28px 0 12px}
-.body-text-inner ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 32px;margin-bottom:24px}
-@media(max-width:600px){.body-text-inner ul{grid-template-columns:1fr}}
-.body-text-inner ul li{font-family:'Inter',sans-serif;font-size:15px;color:rgba(255,255,255,.5);display:flex;align-items:flex-start;gap:10px;line-height:1.65}
-.body-text-inner ul li::before{content:'';width:4px;height:4px;background:#D71920;border-radius:50%;flex-shrink:0;margin-top:9px}
-.body-text-link{color:#D71920;cursor:pointer;text-decoration:underline;background:none;border:none;font-family:'Inter',sans-serif;font-size:16px;line-height:1.9}
+.seo-section{background:#0d0d0d;padding:90px 5%}
+.seo-inner{max-width:1200px;margin:0 auto}
+.seo-top{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;margin-bottom:64px}
+@media(max-width:768px){.seo-top{grid-template-columns:1fr;gap:40px}}
+.seo-top-left .section-eyebrow{margin-bottom:14px}
+.seo-top-left h2{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(28px,3.5vw,44px);text-transform:uppercase;letter-spacing:-.02em;color:#fff;line-height:1.05;margin-bottom:20px}
+.seo-top-left p{font-family:'Inter',sans-serif;font-size:15px;color:rgba(255,255,255,.48);line-height:1.88;margin-bottom:14px}
+.seo-top-right{display:flex;flex-direction:column;gap:1px;background:rgba(255,255,255,.06)}
+.seo-service-row{background:#111;padding:16px 20px;display:flex;align-items:flex-start;gap:14px;transition:background .25s}
+.seo-service-row:hover{background:#161616}
+.seo-service-dot{width:6px;height:6px;background:#D71920;border-radius:50%;flex-shrink:0;margin-top:6px}
+.seo-service-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;color:#fff;letter-spacing:.02em;margin-bottom:3px}
+.seo-service-desc{font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,.38);line-height:1.6}
+.seo-bottom{background:#111;padding:36px 40px;border-left:3px solid #D71920}
+@media(max-width:600px){.seo-bottom{padding:24px 20px}}
+.seo-bottom h3{font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#D71920;margin-bottom:14px}
+.seo-bottom p{font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,.42);line-height:1.85;margin-bottom:10px}
+.seo-bottom p:last-child{margin-bottom:0}
+.body-text-link{color:#D71920;text-decoration:underline;font-family:'Inter',sans-serif;font-size:inherit;line-height:inherit}
 .body-text-link:hover{color:#ff2a33}
 
 /* =============================================
@@ -628,28 +637,31 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
     </div>
   </section>
 
-  <!-- BODY TEXT BLOCK — AEO 300+ words fix + internal links -->
-  <section class="body-text-section">
-    <div class="body-text-inner fade-up">
-      <h2>Raptor Finish — Premium Mobile Auto Detailing in Metro Vancouver</h2>
-      <p>Raptor Finish delivers precision auto detailing that restores, protects, and elevates vehicles to a showroom-quality finish. We are a mobile detailing service based in Surrey and White Rock, BC — serving the entire Metro Vancouver and Lower Mainland area.</p>
-      <p>We come to you. Whether you're at home, at work, or anywhere in between, our detailing team arrives fully equipped to transform your vehicle. No drop-off required. No waiting at a shop. Just precision results, brought to your driveway. You can also reach us instantly via <a href="https://wa.me/16044777700" target="_blank" rel="noopener" style="color:#D71920">WhatsApp</a>. All bookings are by appointment — <a href="#contact" class="body-text-link" onclick="showPage('contact');return false;">book your detail today</a> and we'll take care of the rest.</p>
-
-      <h3>Our Detailing Services Include:</h3>
-      <ul>
-        <li>Interior Detail — deep cleaning, extraction, conditioning, and odour elimination for a fresh, spotless cabin</li>
-        <li>Exterior Detail — hand wash, clay bar, iron decontamination, and gloss enhancement for a refined finish</li>
-        <li>Full Detail Package — our complete interior and exterior treatment for customers who want the full transformation</li>
-        <li>Ceramic Coating — long-term paint protection with hydrophobic properties and a mirror-like gloss</li>
-        <li>Paint Correction — multi-stage machine polishing to eliminate swirl marks, scratches, and oxidation</li>
-        <li>Paint Enhancement — one-stage polish to dramatically improve gloss and clarity</li>
-        <li>Engine Bay Detail — professional engine bay cleaning and dressing for a clean, well-maintained appearance</li>
-      </ul>
-      <p><a href="#services" class="body-text-link" onclick="showPage('services');return false;">View our full list of services</a> to find the right package for your vehicle.</p>
-
-      <h3>Why Choose Raptor Finish?</h3>
-      <p>We built Raptor Finish for drivers who care — not just about how their car looks, but about the quality of the work, the products used, and the care taken with every panel. Our clients range from daily drivers to performance vehicle owners who expect meticulous results. We use professional-grade products, proper techniques, and take the time to do the job right — every single time.</p>
-      <p>Raptor Finish is based in Surrey, BC and proudly serves White Rock, Langley, Delta, Burnaby, Richmond, and the greater Metro Vancouver and Fraser Valley area. Booking is simple — contact us directly and we'll take care of the rest.</p>
+  <!-- SEO CONTENT SECTION — premium layout, full SEO text preserved -->
+  <section class="seo-section">
+    <div class="seo-inner">
+      <div class="seo-top fade-up">
+        <div class="seo-top-left">
+          <p class="section-eyebrow">Premium Mobile Detailing</p>
+          <h2>Raptor Finish — Metro Vancouver's Mobile Detail Studio</h2>
+          <p>Raptor Finish delivers precision auto detailing that restores, protects, and elevates vehicles to a showroom-quality finish. We are a mobile detailing service based in Surrey and White Rock, BC — serving the entire Metro Vancouver and Lower Mainland area.</p>
+          <p>We come to you. Whether you're at home or at work, our team arrives fully equipped to transform your vehicle. No drop-off. No waiting. Just precision results at your door. Reach us instantly via <a href="https://wa.me/16044777700" target="_blank" rel="noopener" class="body-text-link">WhatsApp</a> or <a href="#contact" class="body-text-link" onclick="showPage('contact');return false;">book your detail today</a>.</p>
+          <p>We built Raptor Finish for drivers who care — not just about how their car looks, but about the quality of the work and the care taken with every panel. Professional-grade products, proper technique, and time to do it right — every single time. <a href="#about" class="body-text-link" onclick="showPage('about');return false;">Learn more about Raptor Finish</a>.</p>
+        </div>
+        <div class="seo-top-right">
+          <div class="seo-service-row"><span class="seo-service-dot"></span><div><div class="seo-service-name">Interior Detail</div><div class="seo-service-desc">Deep cleaning, extraction, conditioning, and odour elimination</div></div></div>
+          <div class="seo-service-row"><span class="seo-service-dot"></span><div><div class="seo-service-name">Exterior Detail</div><div class="seo-service-desc">Hand wash, clay bar, iron decontamination, gloss enhancement</div></div></div>
+          <div class="seo-service-row"><span class="seo-service-dot"></span><div><div class="seo-service-name">Full Detail Package</div><div class="seo-service-desc">Complete interior and exterior transformation in one visit</div></div></div>
+          <div class="seo-service-row"><span class="seo-service-dot"></span><div><div class="seo-service-name">Ceramic Coating</div><div class="seo-service-desc">Long-term hydrophobic protection with mirror-like gloss</div></div></div>
+          <div class="seo-service-row"><span class="seo-service-dot"></span><div><div class="seo-service-name">Paint Correction</div><div class="seo-service-desc">Multi-stage polishing to eliminate swirls, scratches, oxidation</div></div></div>
+          <div class="seo-service-row"><span class="seo-service-dot"></span><div><div class="seo-service-name">Paint Enhancement</div><div class="seo-service-desc">One-stage polish to dramatically improve gloss and clarity</div></div></div>
+          <div class="seo-service-row"><span class="seo-service-dot"></span><div><div class="seo-service-name">Engine Bay Detail</div><div class="seo-service-desc">Professional cleaning and dressing for a clean engine bay</div></div></div>
+        </div>
+      </div>
+      <div class="seo-bottom fade-up">
+        <h3>Service Area</h3>
+        <p>Raptor Finish proudly serves <a href="https://en.wikipedia.org/wiki/Metro_Vancouver_Regional_District" target="_blank" rel="noopener" class="body-text-link">Metro Vancouver</a> including Surrey, White Rock, Langley, Delta, Burnaby, Richmond, and the greater Fraser Valley area. Booking is simple — <a href="#contact" class="body-text-link" onclick="showPage('contact');return false;">contact us directly</a> and we'll take care of the rest. <a href="#services" class="body-text-link" onclick="showPage('services');return false;">View our full list of services</a> to find the right package for your vehicle.</p>
+      </div>
     </div>
   </section>
 
