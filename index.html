@@ -384,42 +384,83 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
 .doc-inner a{color:#D71920;text-decoration:none}.doc-inner a:hover{text-decoration:underline}
 @media(max-width:700px){.nav-links,.nav-cta{display:none}.nav-mobile-btn{display:flex}}
 @media(max-width:480px){.trust-strip{gap:20px}.gallery-img{width:240px;height:164px}}
+
+/* ===== 3D SERVICES SHOWCASE ===== */
+.svc3d-section{background:#0B0B0B;padding:100px 5%;perspective:1200px}
+.svc3d-inner{max-width:1400px;margin:0 auto}
+.svc3d-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
+@media(max-width:1024px){.svc3d-grid{grid-template-columns:1fr 1fr;gap:14px}}
+@media(max-width:600px){.svc3d-grid{grid-template-columns:1fr;gap:12px}}
+.svc3d-card{position:relative;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.23,1.02,.32,1),box-shadow .5s ease;cursor:pointer;will-change:transform}
+.svc3d-card:hover{transform:translateY(-12px) rotateX(4deg) rotateY(-2deg);box-shadow:0 40px 80px rgba(0,0,0,.7),0 0 0 1px rgba(215,25,32,.25)}
+.svc3d-card-inner{background:#0f0f0f;overflow:hidden;position:relative;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px))}
+.svc3d-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(215,25,32,.12) 0%,transparent 50%);opacity:0;transition:opacity .5s;pointer-events:none;z-index:3}
+.svc3d-card:hover::after{opacity:1}
+.svc3d-img{width:100%;height:200px;overflow:hidden;position:relative}
+.svc3d-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s;filter:brightness(.55) saturate(.8)}
+.svc3d-card:hover .svc3d-img img{transform:scale(1.1);filter:brightness(.8) saturate(1)}
+.svc3d-red-line{position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#D71920,rgba(215,25,32,0));transform:scaleX(0);transform-origin:left;transition:transform .5s;z-index:2}
+.svc3d-card:hover .svc3d-red-line{transform:scaleX(1)}
+.svc3d-body{padding:28px}
+.svc3d-num{font-family:'Montserrat',sans-serif;font-weight:900;font-size:10px;letter-spacing:.18em;color:#D71920;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.svc3d-num::after{content:'';flex:1;height:1px;background:rgba(215,25,32,.2)}
+.svc3d-title{font-family:'Montserrat',sans-serif;font-weight:900;font-size:17px;color:#fff;text-transform:uppercase;letter-spacing:.03em;margin-bottom:8px;line-height:1.1}
+.svc3d-desc{font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.4);line-height:1.72;margin-bottom:18px}
+.svc3d-price{font-family:'Montserrat',sans-serif;font-weight:900;font-size:22px;color:#D71920;margin-bottom:16px}
+.svc3d-price span{font-size:13px;color:rgba(255,255,255,.3);font-weight:500;margin-left:2px}
+.svc3d-includes{list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:22px}
+.svc3d-includes li{font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,.42);display:flex;align-items:center;gap:8px}
+.svc3d-includes li::before{content:'';width:3px;height:3px;background:#D71920;border-radius:50%;flex-shrink:0}
+.svc3d-link{display:inline-flex;align-items:center;gap:8px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:.1em;color:#D71920;text-transform:uppercase;text-decoration:none;transition:gap .2s}
+.svc3d-link:hover{gap:14px}
+.svc3d-badge{position:absolute;top:14px;left:14px;background:#D71920;color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:9px;letter-spacing:.1em;padding:4px 10px;text-transform:uppercase;z-index:4;clip-path:polygon(0 0,calc(100% - 6px) 0,100% 6px,100% 100%,0 100%)}
+.svc3d-glow{position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(215,25,32,.12),transparent 60%);opacity:0;transition:opacity .4s;pointer-events:none;z-index:1}
+.svc3d-card:hover .svc3d-glow{opacity:1}
+/* Wide featured card */
+.svc3d-card.wide{grid-column:span 2}
+@media(max-width:600px){.svc3d-card.wide{grid-column:span 1}}
+/* Bottom services link bar */
+.svc3d-footer{display:flex;align-items:center;justify-content:space-between;margin-top:40px;padding-top:32px;border-top:1px solid rgba(255,255,255,.06);flex-wrap:wrap;gap:20px}
+.svc3d-footer-text{font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,.35)}
+.svc3d-all-link{display:inline-flex;align-items:center;gap:10px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:.1em;color:#fff;text-decoration:none;text-transform:uppercase;background:#D71920;padding:14px 28px;transition:background .3s;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px))}
+.svc3d-all-link:hover{background:#ff1e26}
+
 </style>
 </head>
 <body>
 
 <!-- LOADER -->
 <div id="loader">
-  <img src="logo.png" alt="Raptor Finish">
+  <img src="/logo.png" alt="Raptor Finish">
   <div class="loader-bar"><div class="loader-bar-fill"></div></div>
 </div>
 
 <!-- PROMO BAR -->
 <div class="promo-bar">
-  <p>&#128293; Now serving Fraser Valley &nbsp;&middot;&nbsp; Free quotes &nbsp;&middot;&nbsp; <a onclick="showPage('contact')">Book via WhatsApp &rarr;</a></p>
+  <p>&#128293; Now serving Fraser Valley &nbsp;&middot;&nbsp; Free quotes &nbsp;&middot;&nbsp; <a onclick="window.location='/contact.html'">Book via WhatsApp &rarr;</a></p>
 </div>
 
 <!-- NAV -->
 <nav id="mainNav">
-  <img src="logo.png" alt="Raptor Finish Premium Mobile Auto Detailing Metro Vancouver" class="nav-logo-img" onclick="showPage('home')">
+  <a href="/index.html"><img src="/logo.png" alt="Raptor Finish Premium Mobile Auto Detailing Metro Vancouver" class="nav-logo-img"></a>
   <ul class="nav-links">
-    <li><a id="nav-home" class="active" onclick="showPage('home')">Home</a></li>
-    <li><a id="nav-services" onclick="showPage('services')">Services</a></li>
-    <li><a id="nav-about" onclick="showPage('about')">About</a></li>
-    <li><a id="nav-contact" onclick="showPage('contact')">Contact</a></li>
+    <li><a href="/index.html" id="nav-home">Home</a></li>
+    <li><a href="/services.html" id="nav-services">Services</a></li>
+    <li><a href="/about.html" id="nav-about">About</a></li>
+    <li><a href="/contact.html" id="nav-contact">Contact</a></li>
   </ul>
-  <button class="nav-cta" onclick="showPage('contact')">Book Now</button>
+  <a href="/contact.html" class="nav-cta" style="text-decoration:none">Book Now</a>
   <button class="nav-mobile-btn" onclick="toggleMobile()" aria-label="Open menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <span onclick="showPage('home');closeMobile()">Home</span>
-  <span onclick="showPage('services');closeMobile()">Services</span>
-  <span onclick="showPage('about');closeMobile()">About</span>
-  <span onclick="showPage('contact');closeMobile()">Contact</span>
-  <span class="mob-cta" onclick="showPage('contact');closeMobile()">BOOK NOW</span>
+  <a href="/index.html" onclick="closeMobile()">Home</a>
+  <a href="/services.html" onclick="closeMobile()">Services</a>
+  <a href="/about.html" onclick="closeMobile()">About</a>
+  <a href="/contact.html" onclick="closeMobile()">Contact</a>
+  <a class="mob-cta" href="/contact.html" onclick="closeMobile()">BOOK NOW</a>
 </div>
 
 <!-- FLOATING WHATSAPP -->
@@ -430,14 +471,14 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
 
 <!-- MOBILE STICKY BAR -->
 <div class="mob-book-bar">
-  <button onclick="showPage('contact')">&#128197; BOOK YOUR DETAIL NOW</button>
+  <button onclick="window.location='/contact.html'">&#128197; BOOK YOUR DETAIL NOW</button>
 </div>
 <!-- FOOTER TEMPLATE -->
 <template id="footerTpl">
 <footer>
   <div class="footer-grid">
     <div>
-      <img src="logo.png" alt="Raptor Finish logo" class="footer-logo-img" onclick="showPage('home')">
+      <a href="/index.html"><img src="/logo.png" alt="Raptor Finish logo" class="footer-logo-img"></a>
       <p class="footer-tag">Built for those who notice every detail. Premium mobile auto detailing — we come to you.</p>
       <div class="footer-badge">Mobile Auto Detailing</div>
       <p class="footer-area">Surrey &middot; White Rock &middot; Langley<br>Burnaby &middot; Richmond &middot; Delta<br>Metro Vancouver &middot; Fraser Valley, BC</p>
@@ -445,23 +486,23 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
     <div class="footer-col">
       <h4>Services</h4>
       <ul>
-        <li><span onclick="showPage('services')">Interior Detail</span></li>
-        <li><span onclick="showPage('services')">Exterior Detail</span></li>
-        <li><span onclick="showPage('services')">Full Detail Package</span></li>
-        <li><span onclick="showPage('services')">Paint Correction</span></li>
-        <li><span onclick="showPage('services')">Ceramic Coating</span></li>
-        <li><span onclick="showPage('services')">Engine Bay Detail</span></li>
+        <li><a href="/services.html">Interior Detail</a></li>
+        <li><a href="/services.html">Exterior Detail</a></li>
+        <li><a href="/services.html">Full Detail Package</a></li>
+        <li><a href="/services.html">Paint Correction</a></li>
+        <li><a href="/services.html">Ceramic Coating</a></li>
+        <li><a href="/services.html">Engine Bay Detail</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Company</h4>
       <ul>
-        <li><span onclick="showPage('home')">Home</span></li>
-        <li><span onclick="showPage('about')">About Us</span></li>
-        <li><span onclick="showPage('services')">Services</span></li>
-        <li><span onclick="showPage('contact')">Contact</span></li>
-        <li><span onclick="showPage('contact')">Book a Detail</span></li>
-        <li><span onclick="showPage('privacy')">Privacy Policy</span></li>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/about.html">About Us</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="/contact.html">Book a Detail</a></li>
+        <li><a href="/privacy.html">Privacy Policy</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -488,8 +529,8 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
   <div class="footer-bottom">
     <p>&copy; 2025 Raptor Finish. All rights reserved. Metro Vancouver, BC, Canada.</p>
     <div class="footer-legal">
-      <span onclick="showPage('privacy')">Privacy Policy</span>
-      <span onclick="showPage('contact')">Book Now</span>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/contact.html">Book Now</a>
     </div>
   </div>
 </footer>
@@ -510,8 +551,8 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
     <h1>Your Vehicle.<br><em>Fully Refined.</em></h1>
     <p class="hero-sub">Precision detailing delivered to your door. We restore, protect, and elevate every vehicle to a showroom-quality finish.</p>
     <div class="hero-btns">
-      <button class="btn-red" onclick="showPage('contact')">BOOK YOUR DETAIL</button>
-      <button class="btn-ghost" onclick="showPage('services')">VIEW SERVICES</button>
+      <button class="btn-red" onclick="window.location='/contact.html'">BOOK YOUR DETAIL</button>
+      <button class="btn-ghost" onclick="window.location='/services.html'">VIEW SERVICES</button>
     </div>
   </div>
   <div class="hero-scroll" onclick="document.querySelector('.trust-strip').scrollIntoView({behavior:'smooth'})">
@@ -550,8 +591,8 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
       <p class="section-eyebrow">Who We Are</p>
       <h2 class="section-h2">More Than Clean.<br>Fully Refined.</h2>
       <p class="section-p">Raptor Finish is a premium mobile auto detailing brand built around precision, protection, and transformation. We don't operate out of a shop — we come directly to you, wherever you are in Metro Vancouver.</p>
-      <p class="section-p" style="margin-top:14px">Every vehicle is treated with the same relentless attention to detail. <a href="#about" class="body-text-link" onclick="showPage('about');return false;">Learn more about Raptor Finish</a> and what drives us.</p>
-      <button class="btn-red" onclick="showPage('about')" style="margin-top:32px">OUR STORY</button>
+      <p class="section-p" style="margin-top:14px">Every vehicle is treated with the same relentless attention to detail. <a href="#about" class="body-text-link" href="/about.html">Learn more about Raptor Finish</a> and what drives us.</p>
+      <button class="btn-red" onclick="window.location='/about.html'" style="margin-top:32px">OUR STORY</button>
       <div class="about-stats">
         <div class="stat-box"><div class="stat-num">7+</div><div class="stat-label">Services</div></div>
         <div class="stat-box"><div class="stat-num">100%</div><div class="stat-label">Mobile</div></div>
@@ -601,7 +642,7 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
         <p class="section-eyebrow">Premium Mobile Detailing</p>
         <h2>Metro Vancouver's Mobile Detail Studio</h2>
         <p>Raptor Finish delivers precision auto detailing that restores, protects, and elevates vehicles to a showroom-quality finish. We are a mobile detailing service based in Surrey and White Rock, BC, serving the entire Metro Vancouver and Lower Mainland area.</p>
-        <p>We come to you. No drop-off. No waiting. Just precision results at your door. Reach us via <a href="https://wa.me/16044777700" target="_blank" rel="noopener" class="body-text-link">WhatsApp</a> or <a href="#contact" class="body-text-link" onclick="showPage('contact');return false;">book your detail today</a>. <a href="#about" class="body-text-link" onclick="showPage('about');return false;">Learn more about Raptor Finish</a>.</p>
+        <p>We come to you. No drop-off. No waiting. Just precision results at your door. Reach us via <a href="https://wa.me/16044777700" target="_blank" rel="noopener" class="body-text-link">WhatsApp</a> or <a href="#contact" class="body-text-link" href="/contact.html">book your detail today</a>. <a href="#about" class="body-text-link" href="/about.html">Learn more about Raptor Finish</a>.</p>
       </div>
       <div class="seo-top-right">
         <div class="seo-service-row"><span class="seo-service-dot"></span><div><div class="seo-service-name">Interior Detail</div><div class="seo-service-desc">Deep cleaning, extraction, conditioning, and odour elimination</div></div></div>
@@ -615,28 +656,228 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
     </div>
     <div class="seo-bottom fade-up">
       <h3>Service Area</h3>
-      <p>Raptor Finish proudly serves <a href="https://en.wikipedia.org/wiki/Metro_Vancouver_Regional_District" target="_blank" rel="noopener" class="body-text-link">Metro Vancouver</a> including Surrey, White Rock, Langley, Delta, Burnaby, Richmond, and the greater Fraser Valley area. <a href="#services" class="body-text-link" onclick="showPage('services');return false;">View our full list of services</a> or <a href="#contact" class="body-text-link" onclick="showPage('contact');return false;">contact us</a> to book.</p>
+      <p>Raptor Finish proudly serves <a href="https://en.wikipedia.org/wiki/Metro_Vancouver_Regional_District" target="_blank" rel="noopener" class="body-text-link">Metro Vancouver</a> including Surrey, White Rock, Langley, Delta, Burnaby, Richmond, and the greater Fraser Valley area. <a href="#services" class="body-text-link" href="/services.html">View our full list of services</a> or <a href="#contact" class="body-text-link" href="/contact.html">contact us</a> to book.</p>
     </div>
   </div>
 </section>
 
-<!-- SERVICES GRID -->
-<section class="services-dark">
-  <div class="services-dark-inner">
+
+<!-- 3D SERVICES SHOWCASE -->
+<section class="svc3d-section" id="services-showcase">
+  <div class="svc3d-inner">
     <div class="section-header-row fade-up">
-      <div><p class="section-eyebrow">What We Offer</p><h2 class="section-h2" style="margin-bottom:0">Our Services</h2></div>
-      <button class="link-arrow" onclick="showPage('services')">View All Services <span>&rarr;</span></button>
+      <div>
+        <p class="section-eyebrow">What We Offer</p>
+        <h2 class="section-h2" style="margin-bottom:0">Our Services</h2>
+      </div>
+      <a href="/services.html" class="link-arrow">View All &amp; Pricing <span>&rarr;</span></a>
     </div>
-    <div class="svc-grid">
-      <div class="svc-item fade-up"><div class="svc-item-img"><img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=600&q=75" alt="Premium interior car detailing service Surrey BC" loading="lazy"></div><div class="svc-item-body"><div class="svc-num">01</div><div class="svc-title">Premium Interior Detail</div><div class="svc-desc">Deep clean of every surface, fibre, and trim. Odour treatment included.</div></div></div>
-      <div class="svc-item fade-up"><div class="svc-item-img"><img src="https://images.unsplash.com/photo-1619405399517-d7fce0f13302?w=600&q=75" alt="Exterior car detailing paint protection Metro Vancouver" loading="lazy"></div><div class="svc-item-body"><div class="svc-num">02</div><div class="svc-title">Exterior Detail</div><div class="svc-desc">Precision wash, clay bar, wheels, and paint protection.</div></div></div>
-      <div class="svc-item fade-up"><span class="svc-badge">Most Popular</span><div class="svc-item-img"><img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&q=75" alt="Full detail package complete car transformation" loading="lazy"></div><div class="svc-item-body"><div class="svc-num">03</div><div class="svc-title">Full Detail Package</div><div class="svc-desc">The complete experience — inside and out.</div></div></div>
-      <div class="svc-item fade-up"><div class="svc-item-img"><img src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=600&q=75" alt="Paint correction removing swirl marks and scratches" loading="lazy"></div><div class="svc-item-body"><div class="svc-num">04</div><div class="svc-title">Paint Correction</div><div class="svc-desc">Remove swirls, scratches, and oxidation for a mirror finish.</div></div></div>
-      <div class="svc-item fade-up"><div class="svc-item-img"><img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=600&q=75" alt="Ceramic coating vehicle long-term paint protection" loading="lazy"></div><div class="svc-item-body"><div class="svc-num">05</div><div class="svc-title">Ceramic Coating</div><div class="svc-desc">Long-term gloss and hydrophobic protection on your paint.</div></div></div>
-      <div class="svc-item fade-up"><div class="svc-item-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=75" alt="Engine bay detail cleaning and dressing service" loading="lazy"></div><div class="svc-item-body"><div class="svc-num">06</div><div class="svc-title">Engine Bay Detail</div><div class="svc-desc">Grease and grime removed — engine bay looking sharp.</div></div></div>
+    <div class="svc3d-grid">
+
+      <!-- ESSENTIAL WASH -->
+      <div class="svc3d-card fade-up" onclick="window.location='/services.html'">
+        <div class="svc3d-glow"></div>
+        <div class="svc3d-card-inner">
+          <div class="svc3d-img">
+            <img src="https://images.unsplash.com/photo-1619405399517-d7fce0f13302?w=700&q=75" alt="Essential wash hand wash exterior clean" loading="lazy">
+            <div class="svc3d-red-line"></div>
+          </div>
+          <div class="svc3d-body">
+            <div class="svc3d-num">01</div>
+            <div class="svc3d-title">Essential Wash</div>
+            <div class="svc3d-desc">Foam pre-soak, two-bucket hand wash, tire dressing, and spray sealant protection.</div>
+            <div class="svc3d-price">From $75<span>+</span></div>
+            <ul class="svc3d-includes">
+              <li>Foam cannon pre-soak</li>
+              <li>Two-bucket hand wash</li>
+              <li>Wheel &amp; tire clean + dressing</li>
+              <li>Spray sealant protection</li>
+            </ul>
+            <a href="/services.html" class="svc3d-link">View Details &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- INTERIOR REFRESH -->
+      <div class="svc3d-card fade-up" onclick="window.location='/services.html'">
+        <div class="svc3d-glow"></div>
+        <div class="svc3d-card-inner">
+          <div class="svc3d-img">
+            <img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=700&q=75" alt="Interior detail deep clean vacuum dashboard" loading="lazy">
+            <div class="svc3d-red-line"></div>
+          </div>
+          <div class="svc3d-body">
+            <div class="svc3d-num">02</div>
+            <div class="svc3d-title">Interior Refresh</div>
+            <div class="svc3d-desc">Full interior reset. Vacuum, clean, condition, and protect every surface.</div>
+            <div class="svc3d-price">From $140<span>+</span></div>
+            <ul class="svc3d-includes">
+              <li>Full vacuum all areas</li>
+              <li>All hard surfaces cleaned</li>
+              <li>Dashboard UV protection</li>
+              <li>Floor mats cleaned</li>
+            </ul>
+            <a href="/services.html" class="svc3d-link">View Details &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXTERIOR DETAIL -->
+      <div class="svc3d-card fade-up" onclick="window.location='/services.html'">
+        <div class="svc3d-glow"></div>
+        <div class="svc3d-card-inner">
+          <div class="svc3d-img">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=75" alt="Exterior detail clay bar decontamination paint sealant" loading="lazy">
+            <div class="svc3d-red-line"></div>
+          </div>
+          <div class="svc3d-body">
+            <div class="svc3d-num">03</div>
+            <div class="svc3d-title">Exterior Detail</div>
+            <div class="svc3d-desc">Deep exterior treatment — iron fallout, clay bar, and synthetic paint sealant.</div>
+            <div class="svc3d-price">From $150<span>+</span></div>
+            <ul class="svc3d-includes">
+              <li>Iron fallout decontamination</li>
+              <li>Clay bar treatment</li>
+              <li>Trim restoration</li>
+              <li>Synthetic paint sealant 4–6 months</li>
+            </ul>
+            <a href="/services.html" class="svc3d-link">View Details &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIGNATURE FULL DETAIL — WIDE -->
+      <div class="svc3d-card wide fade-up" onclick="window.location='/services.html'">
+        <div class="svc3d-badge">&#9733; Most Popular</div>
+        <div class="svc3d-glow"></div>
+        <div class="svc3d-card-inner">
+          <div class="svc3d-img" style="height:240px">
+            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1200&q=75" alt="Signature full detail complete interior exterior transformation" loading="lazy">
+            <div class="svc3d-red-line"></div>
+          </div>
+          <div class="svc3d-body">
+            <div class="svc3d-num">04</div>
+            <div class="svc3d-title">Signature Full Detail</div>
+            <div class="svc3d-desc">The complete Raptor Finish experience. Full interior, full exterior, engine bay, and final walkthrough. Inside and out — fully refined.</div>
+            <div class="svc3d-price">From $250<span>+</span></div>
+            <ul class="svc3d-includes" style="columns:2;gap:16px">
+              <li>Full interior detail</li>
+              <li>Full exterior detail</li>
+              <li>Engine bay light clean</li>
+              <li>Leather or fabric conditioned</li>
+              <li>UV dashboard protection</li>
+              <li>Final walkthrough with client</li>
+            </ul>
+            <a href="/services.html" class="svc3d-link">View Details &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAINT CORRECTION -->
+      <div class="svc3d-card fade-up" onclick="window.location='/services.html'">
+        <div class="svc3d-glow"></div>
+        <div class="svc3d-card-inner">
+          <div class="svc3d-img">
+            <img src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=700&q=75" alt="Paint correction machine polish swirl removal" loading="lazy">
+            <div class="svc3d-red-line"></div>
+          </div>
+          <div class="svc3d-body">
+            <div class="svc3d-num">05</div>
+            <div class="svc3d-title">Paint Correction</div>
+            <div class="svc3d-desc">Multi-stage machine polish. Swirls, scratches, and oxidation removed for a mirror finish.</div>
+            <div class="svc3d-price">From $350<span>+</span></div>
+            <ul class="svc3d-includes">
+              <li>Full decontamination</li>
+              <li>Machine polishing — multi-stage</li>
+              <li>IPA panel wipe</li>
+              <li>Paint sealant applied</li>
+            </ul>
+            <a href="/services.html" class="svc3d-link">View Details &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CERAMIC COATING -->
+      <div class="svc3d-card fade-up" onclick="window.location='/services.html'">
+        <div class="svc3d-glow"></div>
+        <div class="svc3d-card-inner">
+          <div class="svc3d-img">
+            <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=700&q=75" alt="Ceramic coating professional long-term paint protection" loading="lazy">
+            <div class="svc3d-red-line"></div>
+          </div>
+          <div class="svc3d-body">
+            <div class="svc3d-num">06</div>
+            <div class="svc3d-title">Ceramic Coating</div>
+            <div class="svc3d-desc">Molecular-level paint protection. Years of hydrophobic gloss and environmental resistance.</div>
+            <div class="svc3d-price">From $399<span>+</span></div>
+            <ul class="svc3d-includes">
+              <li>3 tiers: Essential · Protection · Elite</li>
+              <li>Paint, glass &amp; wheel coating options</li>
+              <li>2–3+ year protection</li>
+              <li>Aftercare guide included</li>
+            </ul>
+            <a href="/services.html" class="svc3d-link">View Details &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- RAPTOR SHIELD — WIDE -->
+      <div class="svc3d-card wide fade-up" onclick="window.location='/services.html'">
+        <div class="svc3d-badge">Monthly Plans</div>
+        <div class="svc3d-glow"></div>
+        <div class="svc3d-card-inner">
+          <div class="svc3d-img" style="height:200px">
+            <img src="https://images.unsplash.com/photo-1600706432502-77a0e2e32790?w=1200&q=75" alt="Raptor Shield maintenance plan recurring detail service" loading="lazy">
+            <div class="svc3d-red-line"></div>
+          </div>
+          <div class="svc3d-body">
+            <div class="svc3d-num">Maintenance Plans</div>
+            <div class="svc3d-title">Raptor Shield Plans</div>
+            <div class="svc3d-desc">Scheduled recurring care — monthly or bi-weekly — so your vehicle is always protected, always clean, always ready. Cancel anytime.</div>
+            <div style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:18px">
+              <div><div class="svc3d-price" style="font-size:18px">$95<span>/mo</span></div><div style="font-family:Inter,sans-serif;font-size:11px;color:rgba(255,255,255,.3)">Basic</div></div>
+              <div><div class="svc3d-price" style="font-size:18px">$150<span>/mo</span></div><div style="font-family:Inter,sans-serif;font-size:11px;color:rgba(255,255,255,.3)">Standard</div></div>
+              <div><div class="svc3d-price" style="font-size:18px">$220<span>/mo</span></div><div style="font-family:Inter,sans-serif;font-size:11px;color:rgba(255,255,255,.3)">Elite</div></div>
+            </div>
+            <a href="/services.html#shield" class="svc3d-link">View Plans &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ENGINE BAY -->
+      <div class="svc3d-card fade-up" onclick="window.location='/services.html'">
+        <div class="svc3d-glow"></div>
+        <div class="svc3d-card-inner">
+          <div class="svc3d-img">
+            <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=700&q=75" alt="Engine bay detail cleaning dressing" loading="lazy">
+            <div class="svc3d-red-line"></div>
+          </div>
+          <div class="svc3d-body">
+            <div class="svc3d-num">Add-On</div>
+            <div class="svc3d-title">Engine Bay Detail</div>
+            <div class="svc3d-desc">Degreaser, detail brush clean, plastic and rubber dressing. As sharp under the hood as out.</div>
+            <div class="svc3d-price">From $80<span>+</span></div>
+            <ul class="svc3d-includes">
+              <li>Degreaser application &amp; rinse</li>
+              <li>Detail brush clean</li>
+              <li>Plastic &amp; rubber dressing</li>
+            </ul>
+            <a href="/services.html" class="svc3d-link">View Add-Ons &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /svc3d-grid -->
+
+    <div class="svc3d-footer fade-up">
+      <p class="svc3d-footer-text">All services are mobile. We come to your home, office, or driveway — anywhere in Metro Vancouver.</p>
+      <a href="/services.html" class="svc3d-all-link">FULL SERVICE MENU &amp; PRICING &rarr;</a>
     </div>
   </div>
 </section>
+
+
+
 
 <!-- BEFORE / AFTER SLIDER -->
 <section class="ba-section">
@@ -674,7 +915,7 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
       <div class="price-card fade-up"><div class="price-name">Ceramic Coating</div><div class="price-from">Starting from</div><div class="price-amount">$600<span>+</span></div><div class="price-desc">Long-term paint protection bonded to your vehicle.</div><ul class="price-includes"><li>Full decontamination</li><li>Paint correction</li><li>Ceramic application</li><li>Maintenance guide</li></ul></div>
       <div class="price-card fade-up"><div class="price-name">Engine Bay Detail</div><div class="price-from">Starting from</div><div class="price-amount">$80<span>+</span></div><div class="price-desc">Clean engine bay, dressed and looking sharp.</div><ul class="price-includes"><li>Degreaser &amp; rinse</li><li>Detail brush clean</li><li>Plastic dressing</li><li>Final wipe-down</li></ul></div>
     </div>
-    <p class="pricing-note">Prices vary by vehicle size and condition. <a onclick="showPage('contact')">Get a free quote &rarr;</a></p>
+    <p class="pricing-note">Prices vary by vehicle size and condition. <a onclick="window.location='/contact.html'">Get a free quote &rarr;</a></p>
   </div>
 </section>
 
@@ -790,7 +1031,7 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
         <div class="area-city">Abbotsford</div>
         <div class="area-city">Fraser Valley</div>
       </div>
-      <button class="btn-red" onclick="showPage('contact')" style="margin-top:28px">CHECK YOUR AREA</button>
+      <button class="btn-red" onclick="window.location='/contact.html'" style="margin-top:28px">CHECK YOUR AREA</button>
     </div>
     <div class="area-map fade-up">
       <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d166386!2d-122.8490!3d49.1913!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sca!4v1700000000000!5m2!1sen!2sca" allowfullscreen="" loading="lazy" title="Raptor Finish service area Metro Vancouver"></iframe>
@@ -809,7 +1050,7 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
     <details class="faq-item fade-up"><summary class="faq-q">How long does a full detail take?</summary><p class="faq-a">A full interior and exterior detail typically takes 3 to 5 hours depending on vehicle size and condition.</p></details>
     <details class="faq-item fade-up"><summary class="faq-q">Do I need to be home during the detail?</summary><p class="faq-a">No. As long as we have access to your vehicle and a safe place to work, you do not need to be present.</p></details>
     <details class="faq-item fade-up"><summary class="faq-q">What is ceramic coating and how long does it last?</summary><p class="faq-a">Ceramic coating is a professional-grade liquid polymer that bonds to your paint, providing 2 to 5 years of protection against UV, water, and contaminants.</p></details>
-    <details class="faq-item fade-up"><summary class="faq-q">How do I book a mobile detail with Raptor Finish?</summary><p class="faq-a">Fill out our <a href="#contact" class="body-text-link" onclick="showPage('contact');return false;">online booking form</a>, call <a href="tel:+16044777700" style="color:#D71920">(604) 477-7700</a>, or message us on <a href="https://wa.me/16044777700" target="_blank" rel="noopener" class="body-text-link">WhatsApp</a>.</p></details>
+    <details class="faq-item fade-up"><summary class="faq-q">How do I book a mobile detail with Raptor Finish?</summary><p class="faq-a">Fill out our <a href="#contact" class="body-text-link" href="/contact.html">online booking form</a>, call <a href="tel:+16044777700" style="color:#D71920">(604) 477-7700</a>, or message us on <a href="https://wa.me/16044777700" target="_blank" rel="noopener" class="body-text-link">WhatsApp</a>.</p></details>
     <details class="faq-item fade-up"><summary class="faq-q">How much does mobile auto detailing cost?</summary><p class="faq-a">Prices start from $80 for an engine bay detail and $200+ for a full detail package. Final price depends on vehicle size and condition. Contact us for a free quote.</p></details>
   </div>
 </section>
@@ -827,7 +1068,7 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
         <div class="referral-step"><div class="referral-step-num">2</div><div class="referral-step-label">They book &amp; mention your name</div></div>
         <div class="referral-step"><div class="referral-step-num">3</div><div class="referral-step-label">You both save $20</div></div>
       </div>
-      <button class="btn-red" onclick="showPage('contact')">CLAIM YOUR DISCOUNT</button>
+      <button class="btn-red" onclick="window.location='/contact.html'">CLAIM YOUR DISCOUNT</button>
     </div>
   </div>
 </section>
@@ -846,7 +1087,7 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
 <section class="cta-strip">
   <h2>Ready to Book?</h2>
   <p>Serving Metro Vancouver, Surrey, White Rock, Langley, Burnaby, Richmond, and the Fraser Valley. One message away.</p>
-  <button class="btn-white" onclick="showPage('contact')">BOOK YOUR DETAIL</button>
+  <button class="btn-white" onclick="window.location='/contact.html'">BOOK YOUR DETAIL</button>
 </section>
 <div id="footer-home"></div>
 </div>
@@ -862,7 +1103,7 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
   <div class="svc-full-card fade-up"><span class="svc-full-badge">Premium Protection</span><div class="svc-full-img"><img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=700&q=75" alt="Ceramic coating professional grade long-term paint protection" loading="lazy"></div><div class="svc-full-body"><p class="svc-full-num">06</p><h2>Ceramic Coating</h2><p>The ultimate long-term paint protection. A professional-grade ceramic coating delivering years of gloss and hydrophobic protection.</p><ul class="svc-includes"><li>Full paint decontamination and correction</li><li>Surface prep and panel wipe</li><li>Professional ceramic coating application</li><li>Curing and final inspection</li><li>Maintenance guide provided</li></ul></div></div>
   <div class="svc-full-card fade-up"><div class="svc-full-img"><img src="https://images.unsplash.com/photo-1600706432502-77a0e2e32790?w=700&q=75" alt="Engine bay detail degreaser brush cleaning dressing" loading="lazy"></div><div class="svc-full-body"><p class="svc-full-num">07</p><h2>Engine Bay Detail</h2><p>A careful engine bay clean that removes grease, grime, and buildup — making it look as sharp as the exterior.</p><ul class="svc-includes"><li>Degreaser application and rinse</li><li>Detail brush cleaning</li><li>Plastic and rubber dressing</li><li>Final wipe-down and inspection</li></ul></div></div>
 </div></div></section>
-<section class="cta-strip"><h2>Ready to Book?</h2><p>We come to your home, office, or anywhere in Metro Vancouver. All bookings by appointment.</p><button class="btn-white" onclick="showPage('contact')">BOOK YOUR DETAIL</button></section>
+<section class="cta-strip"><h2>Ready to Book?</h2><p>We come to your home, office, or anywhere in Metro Vancouver. All bookings by appointment.</p><button class="btn-white" onclick="window.location='/contact.html'">BOOK YOUR DETAIL</button></section>
 <div id="footer-services"></div>
 </div>
 
@@ -876,7 +1117,7 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
     <h2 class="section-h2" style="font-size:clamp(26px,3.5vw,44px)">A Premium Mobile Detailing Brand</h2>
     <p>Raptor Finish is a premium mobile auto detailing business based in Metro Vancouver — serving Surrey, White Rock, the Lower Mainland, and the Fraser Valley. We don't operate out of a fixed location. We come to you, by appointment.</p>
     <p>We created Raptor Finish because we saw a gap between basic car washes and the level of care that serious vehicle owners actually want. Our work is detailed, precise, and built around delivering a result that speaks for itself.</p>
-    <p>Our long-term vision is to grow into luxury, performance, and exotic vehicle detailing — and eventually, private aviation. Right now, our focus is simple: earn your trust through quality work. <a href="#services" class="body-text-link" onclick="showPage('services');return false;">View our full list of services</a> or <a href="#contact" class="body-text-link" onclick="showPage('contact');return false;">book your detail today</a>.</p>
+    <p>Our long-term vision is to grow into luxury, performance, and exotic vehicle detailing — and eventually, private aviation. Right now, our focus is simple: earn your trust through quality work. <a href="#services" class="body-text-link" href="/services.html">View our full list of services</a> or <a href="#contact" class="body-text-link" href="/contact.html">book your detail today</a>.</p>
   </div>
 </div></div></section>
 <section class="values-section"><div class="values-inner"><h2 class="section-h2 fade-up" style="text-align:center">What We Stand For</h2><div class="values-grid">
@@ -886,7 +1127,7 @@ footer{background:#080808;padding:72px 5% 32px;border-top:1px solid rgba(255,255
   <div class="value-card fade-up"><div class="value-big-num">04</div><div class="value-title">Convenience</div><div class="value-desc">We bring the studio to your driveway. Zero drop-off, zero waiting, zero hassle. By appointment.</div></div>
 </div></div></section>
 <section class="quote-section"><blockquote>"More than clean. Fully refined."</blockquote><cite>&mdash; Raptor Finish</cite></section>
-<section class="cta-strip"><h2>Let's Get to Work</h2><p>Book your detail today and see what precision actually looks like.</p><button class="btn-white" onclick="showPage('contact')">BOOK YOUR DETAIL</button></section>
+<section class="cta-strip"><h2>Let's Get to Work</h2><p>Book your detail today and see what precision actually looks like.</p><button class="btn-white" onclick="window.location='/contact.html'">BOOK YOUR DETAIL</button></section>
 <div id="footer-about"></div>
 </div>
 
