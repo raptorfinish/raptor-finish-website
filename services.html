@@ -23,14 +23,14 @@ body{font-family:'Inter',sans-serif;background:#fff;color:#1a1a1a;overflow-x:hid
 ::-webkit-scrollbar-thumb{background:#D71920;border-radius:2px}
 #loader{position:fixed;inset:0;background:#fff;z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;transition:opacity .6s,visibility .6s}
 #loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
-#loader img{height:48px;width:auto;animation:loaderPulse 1.2s ease infinite}
+#loader img{height:44px;width:auto;animation:loaderPulse 1.2s ease infinite}
 .loader-bar{width:140px;height:2px;background:#e8e8e8;overflow:hidden}
 .loader-bar-fill{height:100%;background:#D71920;animation:loaderFill 1.4s ease forwards}
 @keyframes loaderPulse{0%,100%{opacity:.4}50%{opacity:1}}
 @keyframes loaderFill{0%{width:0}100%{width:100%}}
 nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:64px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.06);transition:all .3s}
 nav.scrolled{background:rgba(255,255,255,0.95);box-shadow:0 1px 20px rgba(0,0,0,.06)}
-.nav-logo-img{height:34px;width:auto;display:block;filter:brightness(0);transition:opacity .2s}
+.nav-logo-img{height:30px;width:auto;display:block;transition:opacity .2s}
 .nav-logo-img:hover{opacity:.7}
 .nav-links{display:flex;gap:32px;list-style:none}
 .nav-links a{font-family:'Inter',sans-serif;font-size:14px;font-weight:500;color:#666;text-decoration:none;letter-spacing:.01em;transition:color .2s}
@@ -238,7 +238,7 @@ footer{background:#fafafa;padding:64px 5% 32px;border-top:1px solid #eee}
 .footer-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
 @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.footer-grid{grid-template-columns:1fr}}
-.footer-logo-img{height:32px;width:auto;display:block;margin-bottom:14px;filter:brightness(0)}
+.footer-logo-img{height:28px;width:auto;display:block;margin-bottom:14px}
 .footer-tag{font-family:'Inter',sans-serif;font-size:14px;color:#888;line-height:1.72;margin-bottom:16px;max-width:260px}
 .footer-badge{display:inline-block;background:#fff;border:1px solid #eee;font-family:'Inter',sans-serif;font-weight:600;font-size:10px;letter-spacing:.1em;color:#D71920;text-transform:uppercase;padding:4px 12px;border-radius:50px;margin-bottom:14px}
 .footer-area{font-family:'Inter',sans-serif;font-size:12px;color:#bbb;line-height:1.8}
