@@ -21,13 +21,13 @@ body{font-family:'Inter',sans-serif;background:#fff;color:#1a1a1a;overflow-x:hid
 ::-webkit-scrollbar{width:4px}
 ::-webkit-scrollbar-track{background:#f5f5f5}
 ::-webkit-scrollbar-thumb{background:#D71920;border-radius:2px}
-#loader{position:fixed;inset:0;background:#fff;z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;transition:opacity .6s,visibility .6s}
-#loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
-#loader img{height:44px;width:auto;animation:loaderPulse 1.2s ease infinite}
-.loader-bar{width:140px;height:2px;background:#e8e8e8;overflow:hidden}
-.loader-bar-fill{height:100%;background:#D71920;animation:loaderFill 1.4s ease forwards}
-@keyframes loaderPulse{0%,100%{opacity:.4}50%{opacity:1}}
-@keyframes loaderFill{0%{width:0}100%{width:100%}}
+
+
+
+
+
+
+
 nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:64px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.06);transition:all .3s}
 nav.scrolled{background:rgba(255,255,255,0.95);box-shadow:0 1px 20px rgba(0,0,0,.06)}
 .nav-logo-img{height:30px;width:auto;display:block;transition:opacity .2s}
@@ -383,7 +383,7 @@ footer{background:#fafafa;padding:64px 5% 32px;border-top:1px solid #eee}
 </script>
 </head>
 <body>
-<div id="loader"><img src="/logo.png" alt="Raptor Finish"><div class="loader-bar"><div class="loader-bar-fill"></div></div></div>
+</div>
 <nav id="mainNav">
   <a href="/"><img src="/logo.png" alt="Raptor Finish" class="nav-logo-img"></a>
   <ul class="nav-links">
@@ -771,10 +771,7 @@ window.addEventListener('scroll',function(){
 })();
 var _io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('visible');_io.unobserve(x.target);}});},{threshold:.1});
 document.querySelectorAll('.fade-up').forEach(function(el){_io.observe(el);});
-(function(){
-  var l=document.getElementById('loader');
-  if(l)window.addEventListener('load',function(){setTimeout(function(){l.classList.add('hidden');},400);});
-})();
+
 (function(){
   var s=document.getElementById('baSlider');
   if(!s)return;
