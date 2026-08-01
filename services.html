@@ -424,7 +424,8 @@ footer{background:#fafafa;padding:64px 5% 32px;border-top:1px solid #eee}
   <button class="svc-tab" onclick="goTo('ceramic',1)">Ceramic Coating</button>
   <button class="svc-tab" onclick="goTo('shield',2)">Raptor Shield</button>
   <button class="svc-tab" onclick="goTo('addons',3)">Add-Ons</button>
-  <button class="svc-tab" onclick="goTo('how',4)">How It Works</button>
+  <button class="svc-tab" onclick="goTo('commercial',4)">Commercial &amp; Fleet</button>
+  <button class="svc-tab" onclick="goTo('how',5)">How It Works</button>
 </div>
 
 <!-- CORE PACKAGES -->
@@ -534,6 +535,46 @@ footer{background:#fafafa;padding:64px 5% 32px;border-top:1px solid #eee}
   </div>
 </div>
 
+
+<!-- COMMERCIAL & FLEET -->
+<div id="commercial" style="scroll-margin-top:130px;padding-top:90px">
+  <div class="fade-up" style="margin-bottom:32px">
+    <p class="section-eyebrow">Commercial Division</p>
+    <h2 class="section-h2">Commercial &amp; Fleet Services</h2>
+    <p class="section-p" style="max-width:680px">We wash and detail commercial vehicles of every size — at your yard, depot, or job site. Every commercial job is quoted individually based on vehicle size, condition, and volume. Contact us for a free quote.</p>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-bottom:24px" class="fade-up">
+    <div class="pkg-card">
+      <div style="border-radius:10px;overflow:hidden;aspect-ratio:16/10;margin-bottom:18px"><img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&q=75" alt="Semi truck washing" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+      <div class="pkg-name">Trucks &amp; Trailers</div>
+      <div class="pkg-tagline">Semi trucks, trailers, dump trucks, box trucks — exterior washing and full detailing.</div>
+      <ul class="pkg-list"><li>Exterior wash &amp; degrease</li><li>Wheel, rim &amp; mudflap clean</li><li>Trailer washout available</li><li>Cab interior detailing</li><li>Polishing &amp; protection options</li></ul>
+      <a href="/contact" class="pkg-cta">Contact for Quote</a>
+    </div>
+    <div class="pkg-card">
+      <div style="border-radius:10px;overflow:hidden;aspect-ratio:16/10;margin-bottom:18px"><img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=600&q=75" alt="Commercial vehicles and vans" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+      <div class="pkg-name">Commercial Vehicles</div>
+      <div class="pkg-tagline">Work vans, cube vans, pickups, service vehicles, and company cars.</div>
+      <ul class="pkg-list"><li>Exterior wash &amp; dry</li><li>Interior clean-out &amp; detail</li><li>Decal-safe wash methods</li><li>Brand-ready presentation</li><li>One-off or recurring service</li></ul>
+      <a href="/contact" class="pkg-cta">Contact for Quote</a>
+    </div>
+    <div class="pkg-card">
+      <div style="border-radius:10px;overflow:hidden;aspect-ratio:16/10;margin-bottom:18px"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=75" alt="Equipment and machinery washing" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+      <div class="pkg-name">Equipment &amp; Machinery</div>
+      <div class="pkg-tagline">Excavators, skid steers, forklifts, and other heavy equipment.</div>
+      <ul class="pkg-list"><li>Degrease &amp; pressure wash</li><li>Cab clean-out</li><li>Undercarriage rinse</li><li>Pre-sale &amp; auction prep</li><li>Job-site service available</li></ul>
+      <a href="/contact" class="pkg-cta">Contact for Quote</a>
+    </div>
+  </div>
+
+  <div class="shield-intro fade-up">
+    <h3>Monthly Fleet Washing Plans</h3>
+    <p>Keep your entire fleet clean and professional year-round. We build a recurring schedule around your operation — weekly, bi-weekly, or monthly visits at your yard. Consistent pricing, consistent results, zero disruption to your business. Every fleet plan is custom-quoted based on fleet size and frequency.</p>
+    <a href="/contact" class="btn-red" style="margin-top:20px">Request a Fleet Quote</a>
+  </div>
+</div>
+
 <!-- HOW IT WORKS -->
 <div id="how" style="scroll-margin-top:130px;padding-top:90px;padding-bottom:90px">
   <div class="fade-up" style="text-align:center;max-width:560px;margin:0 auto"><p class="section-eyebrow">The Process</p><h2 class="section-h2">How It Works</h2></div>
@@ -560,7 +601,7 @@ footer{background:#fafafa;padding:64px 5% 32px;border-top:1px solid #eee}
 
 <script>
 function goTo(id,idx){var el=document.getElementById(id);if(el){window.scrollTo({top:el.getBoundingClientRect().top+window.pageYOffset-120,behavior:'smooth'});}document.querySelectorAll('.svc-tab').forEach(function(t,i){t.classList.toggle('active',i===idx);});}
-window.addEventListener('scroll',function(){var ids=['core','ceramic','shield','addons','how'];ids.forEach(function(id,i){var el=document.getElementById(id);if(!el)return;var t=el.getBoundingClientRect().top;if(t<=140&&t>-400){document.querySelectorAll('.svc-tab').forEach(function(tab,j){tab.classList.toggle('active',j===i);});}});});
+window.addEventListener('scroll',function(){var ids=['core','ceramic','shield','addons','commercial','how'];ids.forEach(function(id,i){var el=document.getElementById(id);if(!el)return;var t=el.getBoundingClientRect().top;if(t<=140&&t>-400){document.querySelectorAll('.svc-tab').forEach(function(tab,j){tab.classList.toggle('active',j===i);});}});});
 </script>
 
 <footer>
@@ -580,6 +621,7 @@ window.addEventListener('scroll',function(){var ids=['core','ceramic','shield','
         <li><a href="/services">Paint Correction</a></li>
         <li><a href="/services">Ceramic Coating</a></li>
         <li><a href="/services">Raptor Shield Plans</a></li>
+        <li><a href="/services#commercial">Commercial &amp; Fleet</a></li>
       </ul>
     </div>
     <div class="footer-col">
