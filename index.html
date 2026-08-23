@@ -144,7 +144,7 @@ nav.scrolled{background:rgba(255,255,255,0.95);box-shadow:0 1px 20px rgba(0,0,0,
 .ba-wrap{position:relative;margin-top:56px;user-select:none;overflow:hidden;border-radius:16px;box-shadow:0 12px 48px rgba(0,0,0,.1);aspect-ratio:16/7;cursor:col-resize}
 .ba-before,.ba-after{position:absolute;inset:0;background-size:cover;background-position:center}
 .ba-before{background-image:url('/gallery/truck-side-before.jpg')}
-.ba-after{background-image:url('/gallery/truck-side-after.jpg');clip-path:inset(0 50% 0 0)}
+.ba-after{background-image:url('/gallery/truck-side-after.jpg');clip-path:inset(0 0 0 50%)}
 .ba-handle{position:absolute;top:0;bottom:0;left:50%;width:2px;background:#fff;transform:translateX(-50%);z-index:10}
 .ba-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:40px;height:40px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.2)}
 .ba-btn svg{width:18px;height:18px;stroke:#1a1a1a;fill:none;stroke-width:2}
@@ -809,7 +809,7 @@ document.querySelectorAll('.fade-up').forEach(function(el){_io.observe(el);});
   var s=document.getElementById('baSlider');
   if(!s)return;
   var after=document.getElementById('baAfter'),handle=document.getElementById('baHandle'),drag=false;
-  function set(x){var r=s.getBoundingClientRect(),p=Math.min(Math.max((x-r.left)/r.width*100,2),98);after.style.clipPath='inset(0 '+(100-p)+'% 0 0)';handle.style.left=p+'%';}
+  function set(x){var r=s.getBoundingClientRect(),p=Math.min(Math.max((x-r.left)/r.width*100,2),98);after.style.clipPath='inset(0 0 0 '+p+'%)';handle.style.left=p+'%';}
   s.addEventListener('mousedown',function(e){drag=true;set(e.clientX);e.preventDefault();});
   s.addEventListener('touchstart',function(e){drag=true;set(e.touches[0].clientX);},{passive:true});
   window.addEventListener('mousemove',function(e){if(drag)set(e.clientX);});
