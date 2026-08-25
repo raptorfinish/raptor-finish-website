@@ -73,7 +73,7 @@ nav.scrolled{background:rgba(255,255,255,0.95);box-shadow:0 1px 20px rgba(0,0,0,
 .hero{position:relative;height:100vh;min-height:600px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
 .hero-bg{position:absolute;inset:0;display:flex;animation:heroZoom 16s ease-in-out infinite alternate}
 .hero-bg-half{flex:1;background-size:cover;background-position:center;position:relative}
-.hero-bg-half.car{background-image:url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1400&q=85')}
+.hero-bg-half.car{background-size:cover;background-position:center}
 .hero-bg-half.truck{background-image:url('/gallery/truck-side-after.jpg')}
 .hero-bg-half+.hero-bg-half{border-left:1px solid rgba(255,255,255,.15)}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,.25) 60%,rgba(0,0,0,.55) 100%)}
@@ -101,8 +101,8 @@ nav.scrolled{background:rgba(255,255,255,0.95);box-shadow:0 1px 20px rgba(0,0,0,
 .about-split{display:grid;grid-template-columns:1fr 1fr;max-width:1100px;margin:0 auto;padding:100px 5%;gap:80px;align-items:center}
 @media(max-width:768px){.about-split{grid-template-columns:1fr;gap:48px;padding:60px 5%}}
 .about-img-wrap{position:relative}
-.about-main-img{width:100%;aspect-ratio:4/5;background:url('https://images.unsplash.com/photo-1619405399517-d7fce0f13302?w=800&q=80') center/cover;border-radius:16px;box-shadow:0 24px 80px rgba(0,0,0,.12)}
-.about-accent-img{position:absolute;bottom:-24px;right:-24px;width:56%;aspect-ratio:1;background:url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&q=80') center/cover;border-radius:12px;border:4px solid #fff;box-shadow:0 12px 40px rgba(0,0,0,.15);z-index:2}
+.about-main-img{width:100%;aspect-ratio:4/5;background-size:cover;background-position:center;border-radius:16px;box-shadow:0 24px 80px rgba(0,0,0,.12)}
+.about-accent-img{position:absolute;bottom:-24px;right:-24px;width:56%;aspect-ratio:1;background-size:cover;background-position:center;border-radius:12px;border:4px solid #fff;box-shadow:0 12px 40px rgba(0,0,0,.15);z-index:2}
 .about-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:36px}
 .stat-box{background:#fafafa;border:1px solid #f0f0f0;padding:20px;border-radius:12px;text-align:center}
 .stat-num{font-family:'Montserrat',sans-serif;font-weight:800;font-size:28px;color:#D71920;line-height:1}
@@ -233,7 +233,7 @@ details[open] .faq-q::after{transform:rotate(45deg)}
 .btn-white{background:#fff;color:#1a1a1a;font-family:'Inter',sans-serif;font-weight:600;font-size:14px;padding:14px 36px;border-radius:8px;text-decoration:none;display:inline-block;transition:all .25s;border:none;cursor:pointer}
 .btn-white:hover{background:#f0f0f0;transform:translateY(-1px);box-shadow:0 8px 24px rgba(0,0,0,.2)}
 .feature-band{position:relative;height:380px;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.fb-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=1920&q=80') center/cover}
+.fb-bg{position:absolute;inset:0;background-size:cover;background-position:center}
 .fb-overlay{position:absolute;inset:0;background:rgba(0,0,0,.65)}
 .fb-content{position:relative;z-index:2;text-align:center;max-width:680px;padding:0 24px}
 .fb-content blockquote{font-family:'Inter',sans-serif;font-style:italic;font-weight:300;font-size:clamp(20px,3vw,34px);color:#fff;line-height:1.5;margin-bottom:16px}
@@ -332,7 +332,7 @@ footer{background:#fafafa;padding:64px 5% 32px;border-top:1px solid #eee}
 .about-page-inner{max-width:1100px;margin:0 auto}
 .about-page-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
 @media(max-width:768px){.about-page-grid{grid-template-columns:1fr;gap:40px}}
-.about-big-img{width:100%;aspect-ratio:3/4;background:url('https://images.unsplash.com/photo-1619405399517-d7fce0f13302?w=900&q=80') center/cover;border-radius:20px;box-shadow:0 24px 80px rgba(0,0,0,.1)}
+.about-big-img{width:100%;aspect-ratio:3/4;background-size:cover;background-position:center;border-radius:20px;box-shadow:0 24px 80px rgba(0,0,0,.1)}
 .about-page-text p{font-family:'Inter',sans-serif;font-size:16px;color:#666;line-height:1.85;margin-bottom:16px}
 .values-section{background:#fafafa;padding:80px 5%;border-top:1px solid #eee}
 .values-inner{max-width:1100px;margin:0 auto}
@@ -345,7 +345,7 @@ footer{background:#fafafa;padding:64px 5% 32px;border-top:1px solid #eee}
 .value-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:#1a1a1a;margin-bottom:8px}
 .value-desc{font-family:'Inter',sans-serif;font-size:13px;color:#888;line-height:1.75}
 .quote-section{position:relative;padding:100px 5%;text-align:center;overflow:hidden}
-.qs-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80') center/cover}
+.qs-bg{position:absolute;inset:0;background-size:cover;background-position:center}
 .qs-overlay{position:absolute;inset:0;background:rgba(0,0,0,.7)}
 .quote-section blockquote{position:relative;font-family:'Inter',sans-serif;font-style:italic;font-weight:300;font-size:clamp(20px,3vw,36px);color:#fff;max-width:720px;margin:0 auto 16px;line-height:1.55}
 .quote-section cite{position:relative;font-family:'Inter',sans-serif;font-weight:600;font-size:11px;letter-spacing:.14em;color:rgba(255,255,255,.5);text-transform:uppercase;font-style:normal}
@@ -428,7 +428,7 @@ footer{background:#fafafa;padding:64px 5% 32px;border-top:1px solid #eee}
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"><div class="hero-bg-half car"></div><div class="hero-bg-half truck" data-bgimg="truck-side-after.jpg"></div></div><div class="hero-overlay"></div><div class="hero-bottom-fade"></div>
+  <div class="hero-bg"><div class="hero-bg-half car" data-bgimg="car-side.jpg"></div><div class="hero-bg-half truck" data-bgimg="truck-side-after.jpg"></div></div><div class="hero-overlay"></div><div class="hero-bottom-fade"></div>
   <div class="hero-content">
     <p class="hero-eyebrow">Mobile Auto Detailing &amp; Fleet Washing</p>
     <h1>Cars. Trucks.<br><em>Fully Refined.</em></h1>
@@ -462,8 +462,8 @@ footer{background:#fafafa;padding:64px 5% 32px;border-top:1px solid #eee}
 <section style="background:#fff">
   <div class="about-split">
     <div class="about-img-wrap fade-up">
-      <div class="about-main-img" role="img" aria-label="Raptor Finish mobile auto detailing"></div>
-      <div class="about-accent-img" role="img" aria-label="Premium detailing result"></div>
+      <div class="about-main-img" data-bgimg="car-side.jpg" role="img" aria-label="Raptor Finish mobile auto detailing"></div>
+      <div class="about-accent-img" data-bgimg="car-wheel.jpg" role="img" aria-label="Premium detailing result"></div>
     </div>
     <div class="fade-up">
       <p class="section-eyebrow">Who We Are</p>
@@ -520,28 +520,28 @@ footer{background:#fafafa;padding:64px 5% 32px;border-top:1px solid #eee}
     </div>
     <div class="svc3d-grid">
       <div class="svc3d-card fade-up">
-        <div class="svc3d-img"><img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=600&q=75" alt="Premium interior detail" loading="lazy"></div>
+        <div class="svc3d-img"><img src="" data-img="car-interior-driver.jpg" alt="Premium interior detail" loading="lazy"></div>
         <div class="svc3d-body"><div class="svc3d-title">Interior Detail</div><div class="svc3d-desc">Deep clean of every surface — vacuum, condition, protect.</div><div class="svc3d-price">From $140<sup>+</sup></div><a href="/services" class="svc3d-cta">Learn More &rarr;</a></div>
       </div>
       <div class="svc3d-card fade-up">
-        <div class="svc3d-img"><img src="https://images.unsplash.com/photo-1619405399517-d7fce0f13302?w=600&q=75" alt="Exterior detail" loading="lazy"></div>
+        <div class="svc3d-img"><img src="" data-img="car-side.jpg" alt="Exterior detail" loading="lazy"></div>
         <div class="svc3d-body"><div class="svc3d-title">Exterior Detail</div><div class="svc3d-desc">Hand wash, wheels, trim, and paint protection.</div><div class="svc3d-price">From $150<sup>+</sup></div><a href="/services" class="svc3d-cta">Learn More &rarr;</a></div>
       </div>
       <div class="svc3d-card fade-up">
         <div class="svc3d-badge">Most Popular</div>
-        <div class="svc3d-img"><img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&q=75" alt="Full detail package" loading="lazy"></div>
+        <div class="svc3d-img"><img src="" data-img="car-front.jpg" alt="Full detail package" loading="lazy"></div>
         <div class="svc3d-body"><div class="svc3d-title">Full Detail Package</div><div class="svc3d-desc">Complete interior + exterior transformation in one visit.</div><div class="svc3d-price">From $250<sup>+</sup></div><a href="/services" class="svc3d-cta">Learn More &rarr;</a></div>
       </div>
       <div class="svc3d-card fade-up">
-        <div class="svc3d-img"><img src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=600&q=75" alt="Paint correction" loading="lazy"></div>
+        <div class="svc3d-img"><img src="" data-img="car-wheel.jpg" alt="Paint correction" loading="lazy"></div>
         <div class="svc3d-body"><div class="svc3d-title">Paint Correction</div><div class="svc3d-desc">Swirls, scratches, and oxidation removed. Mirror finish.</div><div class="svc3d-price">From $350<sup>+</sup></div><a href="/services" class="svc3d-cta">Learn More &rarr;</a></div>
       </div>
       <div class="svc3d-card fade-up">
-        <div class="svc3d-img"><img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=600&q=75" alt="Ceramic coating" loading="lazy"></div>
+        <div class="svc3d-img"><img src="" data-img="truck-side-after.jpg" alt="Ceramic coating" loading="lazy"></div>
         <div class="svc3d-body"><div class="svc3d-title">Ceramic Coating</div><div class="svc3d-desc">Years of gloss and hydrophobic protection.</div><div class="svc3d-price">From $399<sup>+</sup></div><a href="/services" class="svc3d-cta">Learn More &rarr;</a></div>
       </div>
       <div class="svc3d-card fade-up">
-        <div class="svc3d-img"><img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=600&q=75" alt="Engine bay detail" loading="lazy"></div>
+        <div class="svc3d-img"><img src="" data-img="car-engine.jpg" alt="Engine bay detail" loading="lazy"></div>
         <div class="svc3d-body"><div class="svc3d-title">Engine Bay Detail</div><div class="svc3d-desc">Degreased, detailed, and dressed to showroom standard.</div><div class="svc3d-price">From $80<sup>+</sup></div><a href="/services" class="svc3d-cta">Learn More &rarr;</a></div>
       </div>
     </div>
@@ -637,22 +637,31 @@ footer{background:#fafafa;padding:64px 5% 32px;border-top:1px solid #eee}
     <p class="section-p" style="max-width:480px;margin:0 auto"><a href="/gallery" class="body-link">See the full gallery &rarr;</a></p></div>
   <div class="gallery-overflow"><div class="gal-fade-l"></div><div class="gal-fade-r"></div>
     <div class="gallery-track">
-      <div class="gal-img"><img src="https://images.unsplash.com/photo-1619405399517-d7fce0f13302?w=640&q=75" alt="Mobile car detailing Metro Vancouver" loading="lazy"></div>
-      <div class="gal-img"><img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=640&q=75" alt="Auto detailing Lower Mainland" loading="lazy"></div>
-      <div class="gal-img"><img src="" data-img="truck-front-after-thumb.jpg" alt="Interior car detailing Metro Vancouver" loading="lazy"></div>
-      <div class="gal-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=640&q=75" alt="Showroom finish detail Lower Mainland" loading="lazy"></div>
-      <div class="gal-img"><img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=640&q=75" alt="Ceramic coating Metro Vancouver" loading="lazy"></div>
-      <div class="gal-img"><img src="" data-img="truck-hood-after-thumb.jpg" alt="Paint correction Metro Vancouver" loading="lazy"></div>
-      <div class="gal-img"><img src="" data-img="trailer-after-thumb.jpg" alt="Fleet vehicle washing Lower Mainland" loading="lazy"></div>
-      <div class="gal-img"><img src="" data-img="wheels-after-thumb.jpg" alt="Truck and fleet washing Metro Vancouver" loading="lazy"></div>
-      <div class="gal-img"><img src="https://images.unsplash.com/photo-1619405399517-d7fce0f13302?w=640&q=75" alt="Mobile truck washing Metro Vancouver" loading="lazy"></div>
-      <div class="gal-img"><img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=640&q=75" alt="Commercial vehicle washing Lower Mainland" loading="lazy"></div>
-      <div class="gal-img"><img src="" data-img="truck-front-after-thumb.jpg" alt="Interior detailing Metro Vancouver" loading="lazy"></div>
-      <div class="gal-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=640&q=75" alt="Premium mobile detailing Lower Mainland" loading="lazy"></div>
-      <div class="gal-img"><img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=640&q=75" alt="Ceramic coating Lower Mainland" loading="lazy"></div>
-      <div class="gal-img"><img src="" data-img="truck-hood-after-thumb.jpg" alt="Paint enhancement Metro Vancouver" loading="lazy"></div>
-      <div class="gal-img"><img src="" data-img="trailer-after-thumb.jpg" alt="Mobile fleet washing Metro Vancouver" loading="lazy"></div>
-      <div class="gal-img"><img src="" data-img="wheels-after-thumb.jpg" alt="Truck washing Lower Mainland" loading="lazy"></div>
+      <div class="gal-img"><img src="" data-img="car-side-thumb.jpg" alt="Mercedes exterior detail Metro Vancouver — Raptor Finish" loading="lazy"></div>
+      <div class="gal-img"><img src="" data-img="car-wheel-thumb.jpg" alt="Wheel and caliper detail Lower Mainland — Raptor Finish" loading="lazy"></div>
+      <div class="gal-img"><img src="" data-img="car-interior-driver-thumb.jpg" alt="Interior car detailing Metro Vancouver — Raptor Finish" loading="lazy"></div>
+      <div class="gal-img"><img src="" data-img="truck-side-after-thumb.jpg" alt="Semi truck washing Metro Vancouver — Raptor Finish" loading="lazy"></div>
+      <div class="gal-img"><img src="" data-img="car-engine-thumb.jpg" alt="Engine bay detailing Metro Vancouver — Raptor Finish" loading="lazy"></div>
+      <div class="gal-img"><img src="" data-img="truck-front-after-thumb.jpg" alt="Truck front end wash Lower Mainland — Raptor Finish" loading="lazy"></div>
+      <div class="gal-img"><img src="" data-img="car-interior-dash-thumb.jpg" alt="Dashboard detailing Metro Vancouver — Raptor Finish" loading="lazy"></div>
+      <div class="gal-img"><img src="" data-img="trailer-after-thumb.jpg" alt="Flat deck trailer washing Metro Vancouver — Raptor Finish" loading="lazy"></div>
+      <div class="gal-img"><img src="" data-img="car-front-thumb.jpg" alt="Mobile detailing at your home Metro Vancouver — Raptor Finish" loading="lazy"></div>
+      <div class="gal-img"><img src="" data-img="truck-hood-after-thumb.jpg" alt="Truck hood and chrome polish Lower Mainland — Raptor Finish" loading="lazy"></div>
+      <div class="gal-img"><img src="" data-img="wheels-after-thumb.jpg" alt="Truck wheel polish Metro Vancouver — Raptor Finish" loading="lazy"></div>
+      <div class="gal-img"><img src="" data-img="truck-side-before-thumb.jpg" alt="Fleet washing Metro Vancouver — Raptor Finish" loading="lazy"></div>
+      <div class="gal-img"><img src="" data-img="car-side-thumb.jpg" alt="Mercedes exterior detail Metro Vancouver — Raptor Finish" loading="lazy"></div>
+      <div class="gal-img"><img src="" data-img="car-wheel-thumb.jpg" alt="Wheel and caliper detail Lower Mainland — Raptor Finish" loading="lazy"></div>
+      <div class="gal-img"><img src="" data-img="car-interior-driver-thumb.jpg" alt="Interior car detailing Metro Vancouver — Raptor Finish" loading="lazy"></div>
+      <div class="gal-img"><img src="" data-img="truck-side-after-thumb.jpg" alt="Semi truck washing Metro Vancouver — Raptor Finish" loading="lazy"></div>
+      <div class="gal-img"><img src="" data-img="car-engine-thumb.jpg" alt="Engine bay detailing Metro Vancouver — Raptor Finish" loading="lazy"></div>
+      <div class="gal-img"><img src="" data-img="truck-front-after-thumb.jpg" alt="Truck front end wash Lower Mainland — Raptor Finish" loading="lazy"></div>
+      <div class="gal-img"><img src="" data-img="car-interior-dash-thumb.jpg" alt="Dashboard detailing Metro Vancouver — Raptor Finish" loading="lazy"></div>
+      <div class="gal-img"><img src="" data-img="trailer-after-thumb.jpg" alt="Flat deck trailer washing Metro Vancouver — Raptor Finish" loading="lazy"></div>
+      <div class="gal-img"><img src="" data-img="car-front-thumb.jpg" alt="Mobile detailing at your home Metro Vancouver — Raptor Finish" loading="lazy"></div>
+      <div class="gal-img"><img src="" data-img="truck-hood-after-thumb.jpg" alt="Truck hood and chrome polish Lower Mainland — Raptor Finish" loading="lazy"></div>
+      <div class="gal-img"><img src="" data-img="wheels-after-thumb.jpg" alt="Truck wheel polish Metro Vancouver — Raptor Finish" loading="lazy"></div>
+      <div class="gal-img"><img src="" data-img="truck-side-before-thumb.jpg" alt="Fleet washing Metro Vancouver — Raptor Finish" loading="lazy"></div>
+    
     </div>
   </div>
 </section>
@@ -719,7 +728,7 @@ footer{background:#fafafa;padding:64px 5% 32px;border-top:1px solid #eee}
 
 <!-- QUOTE BAND -->
 <section class="feature-band">
-  <div class="fb-bg"></div><div class="fb-overlay"></div>
+  <div class="fb-bg" data-bgimg="truck-side-after.jpg"></div><div class="fb-overlay"></div>
   <div class="fb-content fade-up">
     <blockquote>"More than clean. Fully refined."</blockquote>
     <cite>&mdash; Raptor Finish &middot; Metro Vancouver</cite>
@@ -836,21 +845,12 @@ document.querySelectorAll('.fade-up').forEach(function(el){_io.observe(el);});
 </script>
 <script>
 (function(){/*__gal_resolver*/
-  var CANDIDATES=['/gallery/','/','/gallery/gallery/'];
-  var PROBE='truck-side-after.jpg';
-  function tryPrefix(i){
-    if(i>=CANDIDATES.length){apply('/gallery/');return;}
-    var t=new Image();
-    t.onload=function(){apply(CANDIDATES[i]);};
-    t.onerror=function(){tryPrefix(i+1);};
-    t.src=CANDIDATES[i]+PROBE+'?v=1';
-  }
-  function apply(base){
-    document.querySelectorAll('[data-img]').forEach(function(el){el.src=base+el.getAttribute('data-img');});
-    document.querySelectorAll('[data-bgimg]').forEach(function(el){el.style.backgroundImage="url('"+base+el.getAttribute('data-bgimg')+"')";});
-  }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){tryPrefix(0);});
-  else tryPrefix(0);
+  var C=['/gallery/','/','/gallery/gallery/'],P='car-side.jpg';
+  function t(i){if(i>=C.length){a('/gallery/');return;}var im=new Image();im.onload=function(){a(C[i]);};im.onerror=function(){t(i+1);};im.src=C[i]+P+'?v=2';}
+  function a(b){document.querySelectorAll('[data-img]').forEach(function(e){e.src=b+e.getAttribute('data-img');});
+  document.querySelectorAll('[data-bgimg]').forEach(function(e){e.style.backgroundImage="url('"+b+e.getAttribute('data-bgimg')+"')";});
+  document.querySelectorAll('[data-full-img]').forEach(function(e){e.setAttribute('data-full',b+e.getAttribute('data-full-img'));});}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){t(0);});else t(0);
 })();
 </script>
 </body>
