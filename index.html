@@ -417,6 +417,33 @@ footer{background:#fafafa;padding:64px 5% 32px;border-top:1px solid #eee}
 {"@type":"Review","author":{"@type":"Person","name":"Armaan Khan"},"reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"reviewBody":"Got my car detailed and he did an excellent job. Car feels fresh and new. On-time and great service."},
 {"@type":"Review","author":{"@type":"Person","name":"Manishit Gilhotra"},"reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"reviewBody":"Best auto detailing service around Vancouver. The monthly maintenance package keeps my vehicle spotless year-round."}]}
 </script>
+<style>/*__footer_mobile*/
+/* --- compact footer on mobile --- */
+@media(max-width:640px){
+  footer{padding:36px 5% 20px}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:24px 18px;margin-bottom:26px}
+  .footer-grid>div:first-child{grid-column:1/-1;text-align:center}
+  .footer-grid>div:first-child .footer-logo-img{margin:0 auto 10px}
+  .footer-tag{font-size:12px;line-height:1.6;margin:0 auto 10px;max-width:280px}
+  .footer-badge{font-size:8px;padding:3px 9px;margin-bottom:8px}
+  .footer-area{font-size:11px;line-height:1.65}
+  .footer-col h4{font-size:9px;margin-bottom:9px}
+  .footer-col ul{gap:6px}
+  .footer-col ul li a{font-size:12px}
+  .footer-contact{font-size:12px;line-height:1.75}
+  .soc-row{gap:6px;margin-top:9px}
+  .soc-icon{width:28px;height:28px;border-radius:6px}
+  .soc-icon svg{width:12px;height:12px}
+  .footer-bottom{padding-top:16px;flex-direction:column;gap:8px;text-align:center}
+  .footer-bottom p{font-size:10px}
+  .footer-legal a{font-size:10px}
+}
+@media(max-width:400px){
+  .footer-grid{grid-template-columns:1fr;gap:20px}
+  .footer-col{text-align:center}
+  .soc-row{justify-content:center}
+}
+</style>
 </head>
 <body>
 </div>
@@ -470,14 +497,6 @@ footer{background:#fafafa;padding:64px 5% 32px;border-top:1px solid #eee}
   </div>
 </section>
 
-<!-- TRUST STRIP -->
-<div class="trust-strip">
-  <div class="trust-item"><span class="trust-dot"></span>Metro Vancouver</div>
-  <div class="trust-item"><span class="trust-dot"></span>Lower Mainland</div>
-  <div class="trust-item"><span class="trust-dot"></span>Cars &amp; Fleets</div>
-  <div class="trust-item"><span class="trust-dot"></span>We Come To Your House Or Yard</div>
-</div>
-
 <!-- STATS -->
 <section class="stats-section">
   <div class="stats-inner">
@@ -485,28 +504,6 @@ footer{background:#fafafa;padding:64px 5% 32px;border-top:1px solid #eee}
     <div class="stat-item"><div class="stat-big">5&#9733;</div><div class="stat-sub">Rated Service</div></div>
     <div class="stat-item"><div class="stat-big" data-count="15">15+</div><div class="stat-sub">Cities Served</div></div>
     <div class="stat-item"><div class="stat-big" data-count="7">7+</div><div class="stat-sub">Services Offered</div></div>
-  </div>
-</section>
-
-<!-- ABOUT SPLIT -->
-<section style="background:#fff">
-  <div class="about-split">
-    <div class="about-img-wrap fade-up">
-      <div class="about-main-img" data-bgimg="car-side.jpg" role="img" aria-label="Raptor Finish mobile auto detailing"></div>
-      <div class="about-accent-img" data-bgimg="car-wheel.jpg" role="img" aria-label="Premium detailing result"></div>
-    </div>
-    <div class="fade-up">
-      <p class="section-eyebrow">Who We Are</p>
-      <h2 class="section-h2">More Than Clean.<br>Fully Refined.</h2>
-      <p class="section-p">Raptor Finish is a premium mobile auto detailing brand built around precision, protection, and transformation. We don't operate out of a shop — we come directly to you, wherever you are in Metro Vancouver.</p>
-      <p class="section-p" style="margin-top:12px">Every vehicle gets the same relentless attention to detail. <a href="/about" class="body-link">Learn more about us</a>.</p>
-      <div class="about-stats">
-        <div class="stat-box"><div class="stat-num">7+</div><div class="stat-label">Services</div></div>
-        <div class="stat-box"><div class="stat-num">100%</div><div class="stat-label">Mobile</div></div>
-        <div class="stat-box"><div class="stat-num">YVR</div><div class="stat-label">Based</div></div>
-        <div class="stat-box"><div class="stat-num">5&#9733;</div><div class="stat-label">Rated</div></div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -541,53 +538,34 @@ footer{background:#fafafa;padding:64px 5% 32px;border-top:1px solid #eee}
   </div>
 </section>
 
-<!-- SERVICES -->
-<section class="svc3d-section">
-  <div class="svc3d-inner">
-    <div class="section-header-row fade-up">
-      <div><p class="section-eyebrow">What We Do</p><h2 class="section-h2" style="margin-bottom:0">Our Services</h2></div>
-      <a href="/services" class="link-arrow">View All Services &rarr;</a>
-    </div>
-    <div class="svc3d-grid">
-      <div class="svc3d-card fade-up">
-        <div class="svc3d-img"><img src="" data-img="car-interior-driver.jpg" alt="Premium interior detail" loading="lazy"></div>
-        <div class="svc3d-body"><div class="svc3d-title">Interior Detail</div><div class="svc3d-desc">Deep clean of every surface — vacuum, condition, protect.</div><a href="/services" class="svc3d-cta">Learn More &rarr;</a></div>
-      </div>
-      <div class="svc3d-card fade-up">
-        <div class="svc3d-img"><img src="" data-img="car-side.jpg" alt="Exterior detail" loading="lazy"></div>
-        <div class="svc3d-body"><div class="svc3d-title">Exterior Detail</div><div class="svc3d-desc">Hand wash, wheels, trim, and paint protection.</div><a href="/services" class="svc3d-cta">Learn More &rarr;</a></div>
-      </div>
-      <div class="svc3d-card fade-up">
-        <div class="svc3d-badge">Most Popular</div>
-        <div class="svc3d-img"><img src="" data-img="car-front.jpg" alt="Full detail package" loading="lazy"></div>
-        <div class="svc3d-body"><div class="svc3d-title">Full Detail Package</div><div class="svc3d-desc">Complete interior + exterior transformation in one visit.</div><a href="/services" class="svc3d-cta">Learn More &rarr;</a></div>
-      </div>
-      <div class="svc3d-card fade-up">
-        <div class="svc3d-img"><img src="" data-img="car-wheel.jpg" alt="Paint correction" loading="lazy"></div>
-        <div class="svc3d-body"><div class="svc3d-title">Paint Correction</div><div class="svc3d-desc">Swirls, scratches, and oxidation removed. Mirror finish.</div><a href="/services" class="svc3d-cta">Learn More &rarr;</a></div>
-      </div>
-      <div class="svc3d-card fade-up">
-        <div class="svc3d-img"><img src="" data-img="truck-side-after.jpg" alt="Ceramic coating" loading="lazy"></div>
-        <div class="svc3d-body"><div class="svc3d-title">Ceramic Coating</div><div class="svc3d-desc">Years of gloss and hydrophobic protection.</div><a href="/services" class="svc3d-cta">Learn More &rarr;</a></div>
-      </div>
-      <div class="svc3d-card fade-up">
-        <div class="svc3d-img"><img src="" data-img="car-engine.jpg" alt="Engine bay detail" loading="lazy"></div>
-        <div class="svc3d-body"><div class="svc3d-title">Engine Bay Detail</div><div class="svc3d-desc">Degreased, detailed, and dressed to showroom standard.</div><a href="/services" class="svc3d-cta">Learn More &rarr;</a></div>
+<!-- AUTO DETAILING -->
+<section style="background:#fff;padding:100px 5%;border-top:1px solid #f0f0f0">
+  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center" class="commercial-grid">
+    <div class="fade-up" style="display:grid;gap:14px">
+      <div style="border-radius:16px;overflow:hidden;aspect-ratio:16/9"><img src="" data-img="car-side.jpg" alt="Premium auto detailing Metro Vancouver" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+        <div style="border-radius:12px;overflow:hidden;aspect-ratio:4/3"><img src="" data-img="car-interior-driver.jpg" alt="Interior car detailing Lower Mainland" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+        <div style="border-radius:12px;overflow:hidden;aspect-ratio:4/3"><img src="" data-img="car-wheel.jpg" alt="Wheel and paint detail Metro Vancouver" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
       </div>
     </div>
-    <div class="svc3d-footer-bar fade-up">
-      <p>All services are fully mobile. We come to your door anywhere in Metro Vancouver.</p>
-      <a href="/services" class="btn-red">View All Services</a>
+    <div class="fade-up">
+      <p class="section-eyebrow">Auto Detailing</p>
+      <h2 class="section-h2">Cars. SUVs.<br>Trucks. Daily Drivers.</h2>
+      <p class="section-p">Interior detailing, exterior detailing, paint correction, and ceramic coating — done properly, at your home or workplace. Every vehicle gets the same attention, whether it's a daily driver or something you keep covered.</p>
+      <p class="section-p" style="margin-top:12px">Want it kept that way? Ask about <strong style="color:#1a1a1a">Raptor Shield</strong> — recurring visits that stop your vehicle falling back to square one.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px">
+        <a href="/contact" class="btn-red">Get a Quote</a>
+        <a href="/services#detailing" class="btn-ghost dark">Learn More</a>
+      </div>
     </div>
   </div>
 </section>
-
 
 <!-- COMMERCIAL & FLEET -->
 <section style="background:#1a1a1a;padding:100px 5%">
   <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center" class="commercial-grid">
     <div class="fade-up">
-      <p class="section-eyebrow">Commercial Division</p>
+      <p class="section-eyebrow">Trucks &amp; Fleet Washing</p>
       <h2 class="section-h2" style="color:#fff">Trucks. Trailers.<br>Fleets. Equipment.</h2>
       <p class="section-p" style="color:rgba(255,255,255,.6)">Raptor Finish now services commercial vehicles of every size — semi trucks, trailers, work vans, box trucks, and heavy equipment. Washing and full detailing, delivered at your yard or job site.</p>
       <p class="section-p" style="color:rgba(255,255,255,.6);margin-top:12px">Running multiple vehicles? Ask about our <strong style="color:#fff">monthly fleet washing plans</strong> — scheduled visits that keep your entire fleet clean, professional, and road-ready.</p>
@@ -694,19 +672,6 @@ footer{background:#fafafa;padding:64px 5% 32px;border-top:1px solid #eee}
   </div>
 </section>
 
-<!-- WHY -->
-<section class="why-section">
-  <div class="why-inner">
-    <div class="fade-up" style="text-align:center;max-width:560px;margin:0 auto"><p class="section-eyebrow">Why Raptor Finish</p><h2 class="section-h2">Precision in Every Pass</h2></div>
-    <div class="why-grid">
-      <div class="why-item fade-up"><div class="why-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><div class="why-title">We Come To You</div><div class="why-desc">No drop-off. No waiting. We arrive at your home or office, fully equipped.</div></div>
-      <div class="why-item fade-up"><div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="why-title">Premium Products</div><div class="why-desc">Professional-grade products and techniques on every vehicle, every time.</div></div>
-      <div class="why-item fade-up"><div class="why-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg></div><div class="why-title">Showroom Results</div><div class="why-desc">A finish you can see and feel. We don't leave until it's right.</div></div>
-      <div class="why-item fade-up"><div class="why-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><div class="why-title">Built on Trust</div><div class="why-desc">Clear pricing, honest recommendations, and consistent quality.</div></div>
-    </div>
-  </div>
-</section>
-
 <!-- SERVICE AREA -->
 <section class="area-section">
   <div class="area-inner">
@@ -751,15 +716,6 @@ footer{background:#fafafa;padding:64px 5% 32px;border-top:1px solid #eee}
     <details class="faq-item fade-up"><summary class="faq-q">Do I need to be present during the service?</summary><p class="faq-a">No. As long as we have access to the vehicle or yard and a safe place to work, you don't need to be on site.</p></details>
 
     <details class="faq-item fade-up"><summary class="faq-q">How do I book?</summary><p class="faq-a">Call <a href="tel:+16044777700">(604) 477-7700</a>, message us on <a href="https://wa.me/16044777700" target="_blank" rel="noopener">WhatsApp</a>, or email <a href="mailto:hello@raptorfinish.com">hello@raptorfinish.com</a>. Commercial and fleet enquiries are welcome.</p></details>
-  </div>
-</section>
-
-<!-- QUOTE BAND -->
-<section class="feature-band">
-  <div class="fb-bg" data-bgimg="truck-side-after.jpg"></div><div class="fb-overlay"></div>
-  <div class="fb-content fade-up">
-    <blockquote>"More than clean. Fully refined."</blockquote>
-    <cite>&mdash; Raptor Finish &middot; Metro Vancouver</cite>
   </div>
 </section>
 

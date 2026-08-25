@@ -425,6 +425,33 @@ footer{background:#fafafa;padding:64px 5% 32px;border-top:1px solid #eee}
   .svc-tab{flex:1 1 100%}
 }
 </style>
+<style>/*__footer_mobile*/
+/* --- compact footer on mobile --- */
+@media(max-width:640px){
+  footer{padding:36px 5% 20px}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:24px 18px;margin-bottom:26px}
+  .footer-grid>div:first-child{grid-column:1/-1;text-align:center}
+  .footer-grid>div:first-child .footer-logo-img{margin:0 auto 10px}
+  .footer-tag{font-size:12px;line-height:1.6;margin:0 auto 10px;max-width:280px}
+  .footer-badge{font-size:8px;padding:3px 9px;margin-bottom:8px}
+  .footer-area{font-size:11px;line-height:1.65}
+  .footer-col h4{font-size:9px;margin-bottom:9px}
+  .footer-col ul{gap:6px}
+  .footer-col ul li a{font-size:12px}
+  .footer-contact{font-size:12px;line-height:1.75}
+  .soc-row{gap:6px;margin-top:9px}
+  .soc-icon{width:28px;height:28px;border-radius:6px}
+  .soc-icon svg{width:12px;height:12px}
+  .footer-bottom{padding-top:16px;flex-direction:column;gap:8px;text-align:center}
+  .footer-bottom p{font-size:10px}
+  .footer-legal a{font-size:10px}
+}
+@media(max-width:400px){
+  .footer-grid{grid-template-columns:1fr;gap:20px}
+  .footer-col{text-align:center}
+  .soc-row{justify-content:center}
+}
+</style>
 </head>
 <body>
 <nav id="mainNav">
