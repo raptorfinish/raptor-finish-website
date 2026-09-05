@@ -142,8 +142,8 @@ nav.scrolled{background:rgba(255,255,255,0.95);box-shadow:0 1px 20px rgba(0,0,0,
 .ba-inner{max-width:1000px;margin:0 auto}
 .ba-wrap{position:relative;margin-top:56px;user-select:none;overflow:hidden;border-radius:16px;box-shadow:0 12px 48px rgba(0,0,0,.1);aspect-ratio:16/7;cursor:col-resize}
 .ba-before,.ba-after{position:absolute;inset:0;background-size:cover;background-position:center}
-.ba-before{background-image:url('/gallery/truck-side-before.jpg')}
-.ba-after{background-image:url('/gallery/truck-side-after.jpg');clip-path:inset(0 0 0 50%)}
+.ba-before{background-size:cover;background-position:center}
+.ba-after{clip-path:inset(0 0 0 50%)}
 .ba-handle{position:absolute;top:0;bottom:0;left:50%;width:2px;background:#fff;transform:translateX(-50%);z-index:10}
 .ba-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:40px;height:40px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.2)}
 .ba-btn svg{width:18px;height:18px;stroke:#1a1a1a;fill:none;stroke-width:2}
@@ -501,6 +501,7 @@ footer{background:#fafafa;padding:56px 5% 26px;border-top:1px solid #eee}
 <section class="hero">
   <div class="hero-bg">
     <div class="hero-slide on" data-bgimg="car-side.jpg"></div>
+    <div class="hero-slide" data-bgimg="ram-hero.jpg"></div>
     <div class="hero-slide" data-bgimg="truck-side-after.jpg"></div>
     <div class="hero-slide" data-bgimg="trailer-after.jpg"></div>
   </div>
@@ -518,6 +519,7 @@ footer{background:#fafafa;padding:56px 5% 26px;border-top:1px solid #eee}
     <button class="hero-dot on" aria-label="Show slide 1"></button>
     <button class="hero-dot" aria-label="Show slide 2"></button>
     <button class="hero-dot" aria-label="Show slide 3"></button>
+    <button class="hero-dot" aria-label="Show slide 4"></button>
   </div>
 </section>
 
@@ -566,10 +568,10 @@ footer{background:#fafafa;padding:56px 5% 26px;border-top:1px solid #eee}
 <section style="background:#fff;padding:100px 5%;border-top:1px solid #f0f0f0">
   <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center" class="commercial-grid">
     <div class="fade-up" style="display:grid;gap:14px">
-      <div style="border-radius:16px;overflow:hidden;aspect-ratio:16/9"><img src="" data-img="car-side.jpg" alt="Premium auto detailing Metro Vancouver" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+      <div style="border-radius:16px;overflow:hidden;aspect-ratio:16/9"><img src="" data-img="ram-hero.jpg" alt="Ram 1500 full exterior detail Metro Vancouver" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
         <div style="border-radius:12px;overflow:hidden;aspect-ratio:4/3"><img src="" data-img="car-interior-driver.jpg" alt="Interior car detailing Lower Mainland" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
-        <div style="border-radius:12px;overflow:hidden;aspect-ratio:4/3"><img src="" data-img="car-wheel.jpg" alt="Wheel and paint detail Metro Vancouver" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+        <div style="border-radius:12px;overflow:hidden;aspect-ratio:4/3"><img src="" data-img="ram-foam.jpg" alt="Foam pre-soak during mobile detail Metro Vancouver" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
       </div>
     </div>
     <div class="fade-up">
@@ -618,8 +620,8 @@ footer{background:#fafafa;padding:56px 5% 26px;border-top:1px solid #eee}
       <p class="section-p">Real work, not stock photos. Drag the handle to see the difference.</p>
     </div>
     <div class="ba-wrap fade-up" id="baSlider">
-      <div class="ba-before" data-bgimg="truck-side-before.jpg"></div>
-      <div class="ba-after" id="baAfter" data-bgimg="truck-side-after.jpg"></div>
+      <div class="ba-before" data-bgimg="ram-interior-before.jpg"></div>
+      <div class="ba-after" id="baAfter" data-bgimg="ram-interior-after.jpg"></div>
       <div class="ba-handle" id="baHandle"><div class="ba-btn"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/><polyline points="9 18 3 12 9 6" transform="translate(12,0)"/></svg></div></div>
       <span class="ba-lbl bef">Before</span><span class="ba-lbl aft">After</span>
     </div>
@@ -675,9 +677,9 @@ footer{background:#fafafa;padding:56px 5% 26px;border-top:1px solid #eee}
       <div class="gal-img"><img src="" data-img="truck-front-after-thumb.jpg" alt="Truck front end wash Lower Mainland — Raptor Finish" loading="lazy"></div>
       <div class="gal-img"><img src="" data-img="car-interior-dash-thumb.jpg" alt="Dashboard detailing Metro Vancouver — Raptor Finish" loading="lazy"></div>
       <div class="gal-img"><img src="" data-img="trailer-after-thumb.jpg" alt="Flat deck trailer washing Metro Vancouver — Raptor Finish" loading="lazy"></div>
-      <div class="gal-img"><img src="" data-img="car-front-thumb.jpg" alt="Mobile detailing at your home Metro Vancouver — Raptor Finish" loading="lazy"></div>
-      <div class="gal-img"><img src="" data-img="truck-hood-after-thumb.jpg" alt="Truck hood and chrome polish Lower Mainland — Raptor Finish" loading="lazy"></div>
-      <div class="gal-img"><img src="" data-img="wheels-after-thumb.jpg" alt="Truck wheel polish Metro Vancouver — Raptor Finish" loading="lazy"></div>
+      <div class="gal-img"><img src="" data-img="ram-foam-thumb.jpg" alt="Mobile detailing at your home Metro Vancouver — Raptor Finish" loading="lazy"></div>
+      <div class="gal-img"><img src="" data-img="ram-engine-thumb.jpg" alt="Truck hood and chrome polish Lower Mainland — Raptor Finish" loading="lazy"></div>
+      <div class="gal-img"><img src="" data-img="ram-wheel-after-thumb.jpg" alt="Truck wheel polish Metro Vancouver — Raptor Finish" loading="lazy"></div>
       <div class="gal-img"><img src="" data-img="truck-side-before-thumb.jpg" alt="Fleet washing Metro Vancouver — Raptor Finish" loading="lazy"></div>
       <div class="gal-img"><img src="" data-img="car-side-thumb.jpg" alt="Mercedes exterior detail Metro Vancouver — Raptor Finish" loading="lazy"></div>
       <div class="gal-img"><img src="" data-img="car-wheel-thumb.jpg" alt="Wheel and caliper detail Lower Mainland — Raptor Finish" loading="lazy"></div>
