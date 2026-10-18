@@ -511,7 +511,7 @@ footer{background:#fafafa;padding:56px 5% 26px;border-top:1px solid #eee}
 </section>
 
 <section class="quote-section">
-  <div class="qs-bg" data-bgimg="car-front.jpg"></div><div class="qs-overlay"></div>
+  <div class="qs-bg" style="background-image:url('/gallery/car-front.jpg')"></div><div class="qs-overlay"></div>
   <blockquote>"More than clean. Fully refined."</blockquote>
   <cite>&mdash; Raptor Finish</cite>
 </section>
@@ -631,16 +631,6 @@ document.querySelectorAll('.fade-up').forEach(function(el){_io.observe(el);});
     });
   },{threshold:.3});
   obs.observe(els[0]);
-})();
-</script>
-<script>
-(function(){/*__gal_resolver*/
-  var C=['/gallery/','/','/gallery/gallery/'],P='car-side.jpg';
-  function t(i){if(i>=C.length){a('/gallery/');return;}var im=new Image();im.onload=function(){a(C[i]);};im.onerror=function(){t(i+1);};im.src=C[i]+P+'?v=2';}
-  function a(b){document.querySelectorAll('[data-img]').forEach(function(e){e.src=b+e.getAttribute('data-img');});
-  document.querySelectorAll('[data-bgimg]').forEach(function(e){e.style.backgroundImage="url('"+b+e.getAttribute('data-bgimg')+"')";});
-  document.querySelectorAll('[data-full-img]').forEach(function(e){e.setAttribute('data-full',b+e.getAttribute('data-full-img'));});}
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){t(0);});else t(0);
 })();
 </script>
 <script>/*__footer_acc*/

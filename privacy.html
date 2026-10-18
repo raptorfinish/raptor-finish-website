@@ -633,16 +633,6 @@ document.querySelectorAll('.fade-up').forEach(function(el){_io.observe(el);});
   obs.observe(els[0]);
 })();
 </script>
-<script>
-(function(){/*__gal_resolver*/
-  var C=['/gallery/','/','/gallery/gallery/'],P='car-side.jpg';
-  function t(i){if(i>=C.length){a('/gallery/');return;}var im=new Image();im.onload=function(){a(C[i]);};im.onerror=function(){t(i+1);};im.src=C[i]+P+'?v=2';}
-  function a(b){document.querySelectorAll('[data-img]').forEach(function(e){e.src=b+e.getAttribute('data-img');});
-  document.querySelectorAll('[data-bgimg]').forEach(function(e){e.style.backgroundImage="url('"+b+e.getAttribute('data-bgimg')+"')";});
-  document.querySelectorAll('[data-full-img]').forEach(function(e){e.setAttribute('data-full',b+e.getAttribute('data-full-img'));});}
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){t(0);});else t(0);
-})();
-</script>
 <script>/*__footer_acc*/
 (function(){
   function sync(){

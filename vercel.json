@@ -7,6 +7,10 @@
       "destination": "/services.html"
     },
     {
+      "source": "/gallery",
+      "destination": "/gallery.html"
+    },
+    {
       "source": "/about",
       "destination": "/about.html"
     },
